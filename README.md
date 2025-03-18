@@ -1,5 +1,5 @@
-# studienprojekt
-Eine Progressive WebApp, mit der Studierende Vorlesungen, Notizen und Prüfungen organisieren können.
+# Studienprojekt
+Eine Progressive Web App, mit der Studierende Vorlesungen, Notizen und Prüfungen organisieren können.
 
 ## Features
 - Vorlesungsverwaltung: Stundenplan-Anzeige, Benachrichtigungen für anstehende Vorlesungen, Notizen direkt an Vorlesungen hängen, To-Do-Liste.
