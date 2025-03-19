@@ -1,0 +1,111 @@
+/* NavigationBarStyles.module.css */
+
+/* Hamburger Menü Button (mobil sichtbar) */
+.mobileHeader {
+  display: none;
+  background-color: #070f2b;
+  padding: 1rem;
+}
+
+.hamburgerButton {
+  background: none;
+  border: none;
+  color: #9290c3;
+  cursor: pointer;
+}
+
+.hamburgerButton:hover {
+  color: #fcfcfc;
+}
+
+/* Sidebar-Grundlayout */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #070f2b;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+/* Mobile Sidebar geschlossen */
+.hideMenu {
+  transform: translateX(-100%);
+}
+
+/* Mobile Sidebar geöffnet */
+.showMenu {
+  transform: translateX(0);
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.without-sidebar {
+  margin-left: 0;
+}
+
+/* Navigationstext */
+.text {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  color: #9290c3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.box {
+  margin-top: 1rem;
+  border-radius: 8px;
+  width: 10rem;
+  transition: background-color 0.3s ease;
+}
+
+.text:hover {
+  color: #fcfcfc;
+}
+
+/* Icons */
+.text svg {
+  font-size: 1.5rem;
+}
+
+/* Responsive Verhalten */
+@media (max-width: 768px) {
+  .mobileHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .container {
+    width: 200px;
+  }
+}
+
+/* Responsive Styling */
+@media (min-width: 768px) {
+  /* Auf größeren Bildschirmen immer sichtbar */
+  .container {
+    transform: translateX(0);
+    width: 250px;
+    display: flex; /* Verhindert die Verschiebung der Sidebar auf großen Bildschirmen */
+  }
+
+  /* Hamburger Button wird auf größeren Bildschirmen ausgeblendet */
+  .mobileHeader {
+    display: none;
+  }
+}

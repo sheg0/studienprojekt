@@ -1,22 +1,81 @@
-//NavigationBar
-import React from "react";
-import { Link } from "react-router-dom";
+// NavigationBar.jsx – mit mobiler Variante & Hamburger Menü
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import styles from "../styles/NavigationBarStyles.module.css";
+import { GoHomeFill } from "react-icons/go";
+import { IoBookSharp, IoSettingsOutline } from "react-icons/io5";
+import { SlCalender } from "react-icons/sl";
+import { MdAssignment } from "react-icons/md";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const NavigationBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <nav className="bg-blue-500 p-4">
-      <ul className="flex space-x-4">
-        <li>
-          <Link to="/" className="text-white">
-            Home
+    <nav>
+      {/* Mobile Hamburger Button */}
+      <div className={styles.mobileHeader}>
+        <button onClick={toggleMenu} className={styles.hamburgerButton}>
+          <GiHamburgerMenu size={24} />
+        </button>
+      </div>
+
+      {/* Sidebar Navigation */}
+      <div
+        className={`${styles.container} ${
+          menuOpen ? styles.showMenu : styles.hideMenu
+        }`}
+      >
+        <h1 className={styles.box}>
+          <NavLink
+            to="/"
+            className={styles.text}
+            onClick={() => setMenuOpen(false)}
+          >
+            <GoHomeFill /> Home
+          </NavLink>
+        </h1>
+        <h1 className={styles.box}>
+          <Link
+            to="/lectures"
+            className={styles.text}
+            onClick={() => setMenuOpen(false)}
+          >
+            <SlCalender /> Lectures
           </Link>
-        </li>
-        <li>
-          <Link to="/lectures" className="text-white">
-            Vorlesungen
+        </h1>
+        <h1 className={styles.box}>
+          <Link
+            to="/notes"
+            className={styles.text}
+            onClick={() => setMenuOpen(false)}
+          >
+            <IoBookSharp /> Notes
           </Link>
-        </li>
-      </ul>
+        </h1>
+        <h1 className={styles.box}>
+          <Link
+            to="/exams"
+            className={styles.text}
+            onClick={() => setMenuOpen(false)}
+          >
+            <MdAssignment /> Exams
+          </Link>
+        </h1>
+        <h1 className={styles.box}>
+          <Link
+            to="/settings"
+            className={styles.text}
+            onClick={() => setMenuOpen(false)}
+          >
+            <IoSettingsOutline /> Settings
+          </Link>
+        </h1>
+      </div>
     </nav>
   );
 };

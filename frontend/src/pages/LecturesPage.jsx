@@ -1,5 +1,14 @@
-// src/pages/LecturesPage.jsx
+/**
+ * Filename      : LecturesPage.jsx
+ * Author        : Esra Balci
+ * Created on    : 2025-03-19
+ * Description   : Short description of the file
+ * Version       : 1.0
+ * Dependencies  : e.g. React, Axios, etc.
+ */
+
 import React, { useState, useEffect } from "react";
+import styles from "../styles/LecturesPageStyles.module.css";
 
 const mockLectures = [
   { id: 1, title: "Mathematik 1", date: "2025-03-20", time: "10:00 - 11:30" },
@@ -26,14 +35,12 @@ const LecturesPage = () => {
   }, []);
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Vorlesungen</h1>
+    <div className={styles.container}>
+      <h1 className="text-2xl font-bold mb-4">Stundenplan</h1>
       <div className="grid gap-4">
         {lectures.map((lecture) => (
           <div key={lecture.id} className="rounded-2xl shadow-md p-4 bg-white">
-            <h2 className="text-xl font-semibold">{lecture.title}</h2>
-            <p className="text-sm text-gray-500">Datum: {lecture.date}</p>
-            <p className="text-sm text-gray-500">Uhrzeit: {lecture.time}</p>
+            <p>Stundenplan</p>
           </div>
         ))}
       </div>
