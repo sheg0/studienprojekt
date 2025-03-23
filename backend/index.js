@@ -1,10 +1,19 @@
-// backend/index.js
 const express = require("express");
+const cors = require("cors");
+const db = require("./db");
+
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-app.get("/api/lectures", (req, res) => {
-  res.json([{ id: 1, title: "Mathe" }]);
+app.get("/", (req, res) => {
+  res.send("🎉 Server läuft und MySQL ist verbunden!");
 });
 
-app.listen(5000, () => console.log("Backend läuft auf Port 5000"));
+const notesRoutes = require("./routes/notes");
+// app.use("/api/notes", notesRoutes);
+app.use("/api/notes", require("./routes/notes"));
+
+app.listen(3001, () => {
+  console.log("🚀 Server läuft auf http://localhost:3001");
+});

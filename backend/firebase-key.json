@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "studienprojekt-esra",
+  "private_key_id": "ac926169d03c4fd641f2fde7ae45312c2094c45f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDJKKYZeroTKdyl\nhVZMy7urOG5kSDXUp5NLqCLzSEipWzVQ98VzwoQtccCitDhCHXPoXsRiA44cGftT\nMct2hGwChR0UE9TDU1vDxg/O6VfnggYux5ST8KxJKlU2lD/QMIUQk7IZgXSP0wT0\nJr7vHju/5/wEMgr29nKEfpK3bTu9wGAyNb7nzbKyBeOT3wp4GXFjvEr06yrp9hSA\nUyrhxImJClLKsLfxfZC77xrexz0d89/SjlwWAGjRyUBZ+Jn2+jPaA7+EQTBUmw7u\noUNPG0Pi6fMRIx7dQipUuBFxRGYsntk65DYqMwxgIrBebn/ud3VOEaB5ZRFn50jj\nobmujDGPAgMBAAECggEACXpw2SJ/Qgfm7aWqu1OeNCMkkHUWlD6RIi959hyhz9kM\nWhRSqXGw6LNDcGctf3AD1h8hAb1JJOnUfccK3zq+HCBJjnigvdNfr4nVlNpJ2g62\nW93rkkz00T29ZiT2HMkse+t5qNoAtAYtZZOty3aROimkJk51Vc2m97c/EoWDGx2w\nBlOBuXu2XrfOQErXJs+A8WlJbCF0EI+e7RXyJVm2r5047KISwsgdvYK/GctlRo2q\n9qASvJWEBiyBUL95oceM3adW3G34bGQm5/iI3yRiJsPALua0gklNGZT9vSGH0r0T\nq0pQTSLoW4/hDtqcaPfXOCpCJcebc25lQo+1XXoPAQKBgQDophXx1UfdLIV5y6Fx\ncBSCzVyIFUWalTo8o3umPYsAp6OFSpdJ8NBEBliUzbvt68b1FYP8c44wnk/HqJ6F\n+6kLvtc4XGjsV93QeErCN21oa30NW+dSOkXPlwpdqJMv3BrdD08FWWqpltwCWEeX\nQ3EJ63VfYQ6c3ARuq/8xOOPw6QKBgQDdWW1kiMl+cG4YMu1lKfRfQfYTVh+UJK1L\niN+KVk8WCN7MrvBcW0xtZ0nfOUsOCiOBmE/l4W4wmZC56lKV3gmkW9H077wCIim8\ny0aEb3NjKgDhgkImFpD3BSHSHaTdFxK1LRORBuZwLWbLT3bjEM6xr2ul5nOI2qfE\n6kpU9l5DtwKBgQCUzO3KQIz3VKuGbAy1XmdwBeOCEoDzTzDxaesDN+e5In+/GCdN\nnp3GdHyhqDjkAuK9DObfSBWQ2SDT5fCGZ6EGpyhGnyxoxgZUeSvvrr3mhKF2Murw\nN99A2C1EHDcP7GquK0VyeW90Ss4rHcWkZPley9/FgnFzOHIJSy8sj2OTSQKBgQDR\nIS/Av5gX9OOfy2YNoZD3+xsic8lML0bnyb7iNd9swx61pkcEC2JvLxpVZA0si5m2\nVJCQceeo1T4u2VwDqo/TkMkSsPohzeM/M5NBhwcu1r2UUnxq/gEi0d99ZHKiTK1p\nLdiBulI4BD1Ns5twty2CJWoAiXX5BBVkb7OhCFBRiwKBgE2wgKQqBBOyXwaZ4of3\nhDZJR/83pvKh9RahMY6UgcPta5eCvBWV9mwV1fzKYAAVfC13yfcAwarkv2bWlFcZ\nxvSE8Tloj5sNd7rS6S3ap/Mv+XXmINAhezdhX1xpRcHEwmgWOC4NYi6+Tuhjgubu\nq39BtatnEae5ugi7DFj6qBl6\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@studienprojekt-esra.iam.gserviceaccount.com",
+  "client_id": "103338149831443319214",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40studienprojekt-esra.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
