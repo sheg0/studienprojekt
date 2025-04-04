@@ -59,11 +59,11 @@ const NavigationBar = () => {
         </h1>
         <h1 className={styles.box}>
           <Link
-            to="/exams"
+            to="/calendar"
             className={styles.text}
             onClick={() => setMenuOpen(false)}
           >
-            <MdAssignment /> Exams
+            <MdAssignment /> Calendar
           </Link>
         </h1>
         <h1 className={styles.box}>
