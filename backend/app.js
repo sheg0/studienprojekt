@@ -103,6 +103,142 @@ app.delete("/api/events/:id", (req, res) => {
   });
 });
 
+// Get all lectures
+app.get("/api/lectures", (req, res) => {
+  const sql = "SELECT * FROM lectures";
+  pool.query(sql, (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: error });
+    }
+    res.json(results);
+  });
+});
+
+// Add a new lecture
+app.post("/api/lectures", (req, res) => {
+  const { title, room } = req.body;
+  if (!title) {
+    return res.status(400).json({ error: "Title is required" });
+  }
+  const sql = "INSERT INTO lectures (title, room) VALUES (?, ?)";
+
+  const values = [title, room];
+
+  pool.query(sql, values, (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: error });
+    }
+    res.status(201).json({ id: results.insertId, title, room });
+  });
+});
+
+app.get("/api/lectures/:id", (req, res) => {
+  const lectureId = req.params;
+  const sql = "SELECT * FROM lectures WHERE id = ?";
+
+  pool.query(sql, [lectureId], (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: error });
+    }
+    if (results.length === 0) {
+      return res.status(404).json({ message: "Lecture not found" });
+    }
+    res.json(results[0]);
+  });
+});
+
+app.put("/api/lectures/:id", (req, res) => {
+  const lectureId = req.params.id;
+  const { title, date, time, room } = req.body;
+  const sql =
+    "UPDATE lectures SET title = ?, date = ?, time = ?, room = ? WHERE id = ?";
+
+  const values = [title, date, time, room, lectureId];
+
+  pool.query(sql, values, (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: error });
+    }
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Lecture not found" });
+    }
+    res.json({ id: lectureId, ...req.body });
+  });
+});
+
+app.delete("/api/lectures/:id", (req, res) => {
+  const lectureId = req.params.id;
+  const sql = "DELETE FROM lectures WHERE id = ?";
+
+  pool.query(sql, [lectureId], (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: error });
+    }
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Lecture not found" });
+    }
+    res.status(204).send();
+  });
+});
+
+app.post("/api/timetable", (req, res) => {
+  const { user_id = 1, lecture_id, weekday, slot_start, slot_end } = req.body;
+
+  if (!lecture_id || !weekday || !slot_start || !slot_end) {
+    return res.status(400).json({ error: "Fehlende Felder!" });
+  }
+
+  const sql = `
+    INSERT INTO timetable_entries (user_id, lecture_id, weekday, slot_start, slot_end)
+    VALUES (?, ?, ?, ?, ?)
+  `;
+
+  const values = [user_id, lecture_id, weekday, slot_start, slot_end];
+
+  pool.query(sql, values, (err, result) => {
+    if (err) {
+      console.error("Fehler beim Eintragen in Stundenplan:", err);
+      return res.status(500).json({ error: "Fehler beim Eintragen" });
+    }
+
+    res.status(201).json({ id: result.insertId, ...req.body });
+  });
+});
+
+app.get("/api/timetable/:user_id", (req, res) => {
+  const userId = req.params.user_id;
+  const sql = `
+    SELECT t.*, l.title, l.room
+    FROM timetable_entries t
+    JOIN lectures l ON t.lecture_id = l.id
+    WHERE t.user_id = ?
+  `;
+
+  pool.query(sql, [userId], (err, results) => {
+    if (err) {
+      console.error("Fehler beim Abrufen des Stundenplans:", err);
+      return res.status(500).json({ error: "Fehler beim Abrufen" });
+    }
+    res.json(results);
+  });
+});
+
+app.delete("/api/timetable/:id", (req, res) => {
+  const { id } = req.params;
+  const sql = "DELETE FROM timetable_entries WHERE id = ?";
+
+  pool.query(sql, [id], (err, results) => {
+    if (err) {
+      console.error("Fehler beim Löschen des Eintrags:", err);
+      return res.status(500).json({ error: "Fehler beim Löschen" });
+    }
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Eintrag nicht gefunden" });
+    }
+    res.status(204).send();
+  });
+});
+
 // Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

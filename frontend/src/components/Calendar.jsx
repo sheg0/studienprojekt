@@ -19,10 +19,10 @@ const CustomCalendar = () => {
   const [eventTime, setEventTime] = useState("");
 
   const typeColors = {
-    exam: "#e74c3c", // red
-    lecture: "#3498db", // blue
-    reminder: "#f1c40f", // yellow
-    study: "#2ecc71", // green
+    exam: "#8338ec",
+    lecture: "#219ebc",
+    reminder: "#fca311",
+    study: "#588157",
   };
 
   useEffect(() => {
@@ -78,7 +78,7 @@ const CustomCalendar = () => {
       date: formattedDate,
       type: eventType,
       description: eventTime,
-      user_id: 1, // use real user_id if available
+      user_id: 1, // use real user_id here if available
       lecture_id: null,
     }).then((newEvent) => {
       const dateKey = new Date(newEvent.date).toDateString();
@@ -140,6 +140,13 @@ const CustomCalendar = () => {
     "Samstag",
     "Sonntag",
   ];
+
+  const typeEmojis = {
+    exam: "📚",
+    lecture: "🧑‍🏫",
+    reminder: "🔔",
+    study: "📝",
+  };
 
   const getDaysInMonth = (month, year) => {
     return new Date(year, month + 1, 0).getDate();
@@ -287,6 +294,7 @@ const CustomCalendar = () => {
         <h2>Termine</h2>
         {Object.entries(events).length === 0 && <p>Keine Termine vorhanden.</p>}
         {Object.entries(events)
+          .filter(([date]) => new Date(date) >= new Date().setHours(0, 0, 0, 0))
           .sort((a, b) => new Date(a[0]) - new Date(b[0]))
           .map(([date, items]) => (
             <div key={date}>
@@ -297,21 +305,24 @@ const CustomCalendar = () => {
                   className={styles.eventItem}
                   style={{ backgroundColor: evt.color }}
                 >
-                  <span>{evt.text}</span>
-                  <small
-                    style={{
-                      fontSize: "0.7rem",
-                      marginLeft: "0.5rem",
-                      opacity: 0.7,
-                    }}
-                  >
-                    ({evt.type})
-                  </small>
-                  {evt.time && (
-                    <div style={{ fontSize: "0.7rem", opacity: 0.8 }}>
-                      {evt.time}
-                    </div>
-                  )}
+                  <div className={styles.eventContent}>
+                    <small
+                      style={{
+                        fontSize: "1.2rem",
+                      }}
+                    >
+                      {typeEmojis[evt.type]}{" "}
+                    </small>{" "}
+                    <span style={{ fontSize: "1rem", fontWeight: "500" }}>
+                      {evt.text}
+                    </span>
+                    {evt.time && (
+                      <div style={{ fontSize: "1rem", opacity: 0.8 }}>
+                        {evt.time}
+                      </div>
+                    )}
+                  </div>
+
                   <button
                     onClick={() => {
                       setEventToDelete({ id: evt.id, date });
@@ -319,7 +330,7 @@ const CustomCalendar = () => {
                     }}
                     className={styles.deleteButton}
                   >
-                    🗑️
+                    ❌
                   </button>
                 </div>
               ))}
@@ -354,54 +365,45 @@ const CustomCalendar = () => {
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="Termin hinzufügen"
-        style={{
-          content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-            borderRadius: "1rem",
-            padding: "2rem",
-          },
-        }}
+        className={styles.overlay}
       >
-        <h2>Termin für {selectedDate}</h2>
-        <input
-          type="text"
-          value={eventInput}
-          onChange={(e) => setEventInput(e.target.value)}
-          placeholder="Ereignis eingeben..."
-        />
-        <input
-          type="time"
-          value={eventTime}
-          onChange={(e) => setEventTime(e.target.value)}
-          style={{ marginTop: "1rem" }}
-        />
-        <select
-          value={eventType}
-          onChange={(e) => setEventType(e.target.value)}
-          style={{
-            marginTop: "1rem",
-            padding: "0.4rem",
-            borderRadius: "0.5rem",
-          }}
-        >
-          <option value="reminder">🔔 Reminder</option>
-          <option value="exam">📚 Exam</option>
-          <option value="lecture">🧑‍🏫 Lecture</option>
-          <option value="study">📝 Study</option>
-        </select>
-        <div style={{ marginTop: "1rem" }}>
-          <button onClick={handleEventSave}>Speichern</button>
-          <button
-            onClick={() => setIsModalOpen(false)}
-            style={{ marginLeft: "1rem" }}
+        <div className={styles.modal}>
+          <h2>Termin für {selectedDate}</h2>
+          <input
+            type="text"
+            value={eventInput}
+            onChange={(e) => setEventInput(e.target.value)}
+            placeholder="Ereignis eingeben..."
+            className={styles.selectInput}
+          />
+          <input
+            type="time"
+            value={eventTime}
+            onChange={(e) => setEventTime(e.target.value)}
+            // style={{ marginTop: "1rem" }}
+            className={styles.periodInput}
+          />
+          <select
+            value={eventType}
+            onChange={(e) => setEventType(e.target.value)}
+            className={styles.periodInput}
           >
-            Abbrechen
-          </button>
+            <option value="reminder">🔔 Reminder</option>
+            <option value="exam">📚 Exam</option>
+            <option value="lecture">🧑‍🏫 Lecture</option>
+            <option value="study">📝 Study</option>
+          </select>
+          <div style={{ marginTop: "1rem" }}>
+            <button onClick={handleEventSave} className={styles.buttonInput}>
+              Speichern
+            </button>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className={styles.closeButton}
+            >
+              ❌
+            </button>
+          </div>
         </div>
       </Modal>
 
@@ -409,42 +411,33 @@ const CustomCalendar = () => {
         isOpen={isDeleteModalOpen}
         onRequestClose={() => setIsDeleteModalOpen(false)}
         contentLabel="Termin löschen bestätigen"
-        style={{
-          content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-            borderRadius: "1rem",
-            padding: "2rem",
-          },
-        }}
+        className={styles.overlay}
       >
-        <h3>Termin wirklich löschen?</h3>
-        <p>Dieser Vorgang kann nicht rückgängig gemacht werden.</p>
-        <div style={{ marginTop: "1rem" }}>
-          <button
-            onClick={() => {
-              if (eventToDelete) {
-                handleEventDelete(eventToDelete.id);
-              }
-              setIsDeleteModalOpen(false);
-              setEventToDelete(null);
-            }}
-          >
-            Ja, löschen
-          </button>
-          <button
-            style={{ marginLeft: "1rem" }}
-            onClick={() => {
-              setIsDeleteModalOpen(false);
-              setEventToDelete(null);
-            }}
-          >
-            Abbrechen
-          </button>
+        <div className={styles.modal}>
+          <h3>Termin wirklich löschen?</h3>
+          <p>Dieser Vorgang kann nicht rückgängig gemacht werden.</p>
+          <div style={{ marginTop: "1rem" }}>
+            <button
+              onClick={() => {
+                if (eventToDelete) {
+                  handleEventDelete(eventToDelete.id);
+                }
+                setIsDeleteModalOpen(false);
+                setEventToDelete(null);
+              }}
+            >
+              Ja, löschen
+            </button>
+            <button
+              style={{ marginLeft: "1rem" }}
+              onClick={() => {
+                setIsDeleteModalOpen(false);
+                setEventToDelete(null);
+              }}
+            >
+              Abbrechen
+            </button>
+          </div>
         </div>
       </Modal>
     </div>
