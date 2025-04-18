@@ -23,9 +23,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;
+  width: 10vh;
   height: 100vh;
-  background-color: #8fa3b6;
+  /* background-color: #8fa3b6;
+   */
+  background-color: #a8a8b3;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -100,7 +102,7 @@
   /* Auf größeren Bildschirmen immer sichtbar */
   .container {
     transform: translateX(0);
-    width: 250px;
+    width: 12rem;
     display: flex; /* Verhindert die Verschiebung der Sidebar auf großen Bildschirmen */
   }
 

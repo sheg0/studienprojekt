@@ -1,3 +1,11 @@
+/**
+ * Filename      : Calendar.jsx
+ * Author        : Esra Balci
+ * Created on    : 2025-04-18
+ * Description   : Short description of the file
+ * Version       : 1.0
+ * Dependencies  : e.g. React, Axios, etc.
+ */
 import React, { useState, useEffect } from "react";
 import styles from "../styles/CalendarPageStyles.module.css";
 import Modal from "react-modal";
@@ -19,10 +27,10 @@ const CustomCalendar = () => {
   const [eventTime, setEventTime] = useState("");
 
   const typeColors = {
-    exam: "#8338ec",
-    lecture: "#219ebc",
-    reminder: "#fca311",
-    study: "#588157",
+    exam: "#8fa3b6",
+    lecture: "#91a89f",
+    reminder: "#574f7d",
+    study: "#503a65",
   };
 
   useEffect(() => {
@@ -237,7 +245,7 @@ const CustomCalendar = () => {
           events[fullDate]?.map((e) => e.text).join(", ") || "Kein Ereignis"
         }
       >
-        <div>{day}</div>
+        <div className={styles.dayInCell}>{day}</div>
         {events[fullDate] &&
           events[fullDate].map((evt, idx) => (
             <div

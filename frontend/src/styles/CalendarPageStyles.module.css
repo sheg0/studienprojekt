@@ -1,8 +1,8 @@
 /* ExamsPageStyles.module.css */
 
 .container {
-  margin-left: 20rem;
-  margin-right: 5rem;
+  margin-left: 15rem;
+  margin-right: 2rem;
   margin-top: 2rem;
   padding: 2rem;
   border-radius: 2rem;
@@ -17,8 +17,8 @@
 
 .calendarWrapper {
   max-width: 100%;
-  margin: auto;
-  border: 2px solid #b6b6b6;
+  /* margin: auto; */
+  border: 0.15rem solid #b6b6b6;
   border-radius: 1rem;
   padding: 1rem;
   font-family: "Montserrat", sans-serif;
@@ -44,16 +44,16 @@
 .calendarGrid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border-top: 2px solid #b6b6b6;
-  border-left: 2px solid #b6b6b6;
+  border-top: 0.15rem solid #b6b6b6;
+  border-left: 0.15rem solid #b6b6b6;
 }
 
 .calendarDayName {
   font-weight: bold;
   text-align: center;
   color: #070f2b;
-  border-right: 2px solid #b6b6b6;
-  border-bottom: 2px solid #b6b6b6;
+  border-right: 0.15rem solid #b6b6b6;
+  border-bottom: 0.15rem solid #b6b6b6;
 }
 
 .calendarCell {
@@ -64,12 +64,12 @@
   font-size: 1rem;
   padding: 1rem;
   text-align: center;
-  border-right: 2px solid #b6b6b6;
-  border-bottom: 2px solid #b6b6b6;
+  border-right: 0.15rem solid #b6b6b6;
+  border-bottom: 0.15rem solid #b6b6b6;
 }
 
 .today {
-  background-color: #d6e0ff;
+  background-color: #a480f74d;
   font-weight: bold;
   color: #000;
 }
@@ -82,8 +82,8 @@
 .calendarContent {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 3rem;
+  padding: 0.5rem;
 }
 
 .eventList {
@@ -92,7 +92,7 @@
   padding: 1rem;
   border-radius: 1rem;
   overflow-y: auto;
-  max-height: 90vh;
+  max-height: 75vh;
 }
 
 .calendarRight {
@@ -129,20 +129,31 @@
   color: black;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  margin: 0.5rem 0;
+  margin: 0.2rem;
   font-size: 0.9rem;
   display: flex;
+  word-break: break-word;
   justify-content: space-between;
 }
 
 .calendarCell .eventItem {
-  margin-top: 0.25rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  color: #fff;
+  margin: 0.2rem;
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+  color: whitesmoke;
   font-size: 0.75rem;
-  max-width: 100%;
+  /* max-width: 100%; */
+  width: 100%;
   word-break: break-word;
+  max-height: 2rem;
+}
+
+.dayInCell {
+  display: fixed;
+  align-items: top;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #070f2b;
 }
 
 .outsideMonth {

@@ -1,3 +1,11 @@
+/**
+ * Filename      : TimetableAddModal.jsx
+ * Author        : Esra Balci
+ * Created on    : 2025-04-18
+ * Description   : Short description of the file
+ * Version       : 1.0
+ * Dependencies  : e.g. React, Axios, etc.
+ */
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Modal.module.css";
 
