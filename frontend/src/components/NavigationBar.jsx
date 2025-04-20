@@ -43,7 +43,7 @@ const NavigationBar = () => {
             className={styles.text}
             onClick={() => setMenuOpen(false)}
           >
-            <GoHomeFill /> Home
+            🏠 Home
           </NavLink>
         </h1>
         <h1 className={styles.box}>
@@ -52,7 +52,8 @@ const NavigationBar = () => {
             className={styles.text}
             onClick={() => setMenuOpen(false)}
           >
-            <SlCalender /> Lectures
+            {/* <SlCalender /> Lectures */}
+            🗓️ Stundenplan
           </Link>
         </h1>
         <h1 className={styles.box}>
@@ -61,7 +62,8 @@ const NavigationBar = () => {
             className={styles.text}
             onClick={() => setMenuOpen(false)}
           >
-            <IoBookSharp /> Notes
+            {/* <IoBookSharp /> Notes */}
+            📚 Notizen
           </Link>
         </h1>
         <h1 className={styles.box}>
@@ -70,7 +72,8 @@ const NavigationBar = () => {
             className={styles.text}
             onClick={() => setMenuOpen(false)}
           >
-            <MdAssignment /> Calendar
+            {/* <MdAssignment /> Calendar */}
+            📅 Kalendar
           </Link>
         </h1>
         <h1 className={styles.box}>
@@ -79,7 +82,8 @@ const NavigationBar = () => {
             className={styles.text}
             onClick={() => setMenuOpen(false)}
           >
-            <IoSettingsOutline /> Settings
+            {/* <IoSettingsOutline /> Settings */}
+            ⚙️ Einstellungen
           </Link>
         </h1>
       </div>

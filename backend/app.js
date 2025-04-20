@@ -2,12 +2,34 @@
 require("dotenv").config(); // Load environment variables from .env file
 const express = require("express");
 const mysql = require("mysql2");
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
+// const notesLecturesRoutes = require("./routes/notesLectures");
 
 const app = express();
 app.use(express.json());
 
 const cors = require("cors");
 app.use(cors()); // Enable CORS for all routes
+
+app.use("/uploads", express.static("uploads")); // Serve static files from the uploads directory
+
+// app.use("/api/notes-lectures", notesLecturesRoutes);
+// app.use("/uploads", express.static("uploads"));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, "uploads");
+    if (!fs.existsSync(uploadPath)) fs.mkdirSync(uploadPath);
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const filename = Date.now() + "-" + file.originalname;
+    cb(null, filename);
+  },
+});
+const upload = multer({ storage });
 
 // Create a MySQL connection pool
 const pool = mysql.createPool({
@@ -234,6 +256,129 @@ app.delete("/api/timetable/:id", (req, res) => {
     }
     if (results.affectedRows === 0) {
       return res.status(404).json({ message: "Eintrag nicht gefunden" });
+    }
+    res.status(204).send();
+  });
+});
+
+app.post("/api/to_do", (req, res) => {
+  const { id, title } = req.body;
+
+  if (!title) {
+    return res.status(400).json({ error: "Fehlende Felder!" });
+  }
+
+  const sql = `
+    INSERT INTO to_do (d, title)
+    VALUES (?, ?)
+  `;
+
+  const values = [id, title];
+
+  pool.query(sql, values, (err, result) => {
+    if (err) {
+      console.error("Fehler beim Eintragen in To-Do:", err);
+      return res.status(500).json({ error: "Fehler beim Eintragen" });
+    }
+
+    res.status(201).json({ id: result.insertId, ...req.body });
+  });
+});
+
+app.get("/api/to_do/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = `
+    SELECT t.*, l.title, l.room
+    FROM to_do t
+    JOIN lectures l ON t.lecture_id = l.id
+    WHERE t.user_id = ?
+  `;
+
+  pool.query(sql, [id], (err, results) => {
+    if (err) {
+      console.error("Fehler beim Abrufen der To-Do-Liste:", err);
+      return res.status(500).json({ error: "Fehler beim Abrufen" });
+    }
+    res.json(results);
+  });
+});
+
+app.delete("/api/to_do/:id", (req, res) => {
+  const { id } = req.params;
+  const sql = "DELETE FROM to_do WHERE id = ?";
+
+  pool.query(sql, [id], (err, results) => {
+    if (err) {
+      console.error("Fehler beim Löschen des Eintrags:", err);
+      return res.status(500).json({ error: "Fehler beim Löschen" });
+    }
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Eintrag nicht gefunden" });
+    }
+    res.status(204).send();
+  });
+});
+
+app.post("/api/notes_lectures", upload.single("pdf"), (req, res) => {
+  const { title, lecture_id } = req.body;
+  const pdf_url = req.file ? req.file.path : null;
+
+  if (!title || !pdf_url) {
+    return res.status(400).json({ error: "Fehlende Felder!" });
+  }
+
+  const sql = `INSERT INTO notes_lectures ( lecture_id, title, pdf_url) VALUES (?, ?, ?)`;
+
+  pool.query(sql, [lecture_id || null, title, pdf_url], (err, result) => {
+    if (err) {
+      console.error("Fehler beim Eintragen in Notizen:", err);
+      return res.status(500).json({ error: "Fehler beim Eintragen" });
+    }
+
+    res.status(201).json({
+      id: result.insertId,
+      title,
+      lecture_id,
+      pdf_url,
+      created_at: new Date().toISOString(),
+    });
+  });
+});
+
+app.get("/api/notes_lectures", (req, res) => {
+  const sql = "SELECT * FROM notes_lectures ORDER BY created_at DESC";
+  pool.query(sql, (err, results) => {
+    if (err) {
+      console.error("Fehler beim Abrufen der Notizen:", err);
+      return res.status(500).json({ error: "Fehler beim Abrufen" });
+    }
+    res.json(results);
+  });
+});
+
+app.get("/api/notes_lectures/:lecture_id", (req, res) => {
+  const { lecture_id } = req.params;
+  const sql = "SELECT * FROM notes_lectures WHERE lecture_id = ?";
+  pool.query(sql, [lecture_id], (err, results) => {
+    if (err) {
+      console.error("Fehler beim Abrufen der Notizen:", err);
+      return res.status(500).json({ error: "Fehler beim Abrufen" });
+    }
+    res.json(results);
+  });
+});
+
+app.delete("/api/notes_lectures/:id", (req, res) => {
+  const { id } = req.params;
+  const sql = "DELETE FROM notes_lectures WHERE id = ?";
+
+  pool.query(sql, [id], (err, results) => {
+    if (err) {
+      console.error("Fehler beim Löschen der Notizen:", err);
+      return res.status(500).json({ error: "Fehler beim Löschen" });
+    }
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Notiz nicht gefunden" });
     }
     res.status(204).send();
   });

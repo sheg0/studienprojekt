@@ -21,13 +21,11 @@
 /* Sidebar-Grundlayout */
 .container {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 2rem;
+  left: 0.8rem;
   width: 10vh;
   height: 100vh;
-  /* background-color: #8fa3b6;
-   */
-  background-color: #a8a8b3;
+  background-color: #706c7a;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -46,12 +44,6 @@
   transform: translateX(0);
 }
 
-.main-content {
-  margin-left: 250px;
-  padding: 2rem;
-  transition: margin-left 0.3s ease;
-}
-
 .main-content.without-sidebar {
   margin-left: 0;
 }
@@ -59,24 +51,27 @@
 /* Navigationstext */
 .text {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: "Montserrat", sans-serif;
-  color: black;
+  color: rgb(214, 214, 214);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 }
 
 .box {
   margin-top: 1rem;
-  border-radius: 8px;
-  width: 10rem;
+  border-radius: 1rem;
+  width: 11rem;
   transition: background-color 0.3s ease;
 }
 
-.text:hover {
-  color: #fcfcfc;
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #87879c;
 }
 
 /* Icons */

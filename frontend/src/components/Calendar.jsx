@@ -64,6 +64,22 @@ const CustomCalendar = () => {
       });
   }, []);
 
+  // const handleCellClick = (day) => {
+  //   const fullDate = new Date(
+  //     currentYear,
+  //     currentMonth,
+  //     day
+  //   ).toLocaleDateString("de-DE", {
+  //     day: "2-digit",
+  //     month: "2-digit",
+  //     year: "numeric",
+  //   });
+
+  //   setSelectedDate(fullDate);
+  //   setEventInput("");
+  //   setIsModalOpen(true);
+  // };
+
   const handleCellClick = (day) => {
     const fullDate = new Date(currentYear, currentMonth, day).toDateString();
     setSelectedDate(fullDate);

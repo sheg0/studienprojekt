@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "i18next": "^25.0.0",
+    "multer": "^1.4.5-lts.2",
+    "react-i18next": "^15.4.1"
+  }
+}
