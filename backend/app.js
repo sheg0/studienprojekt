@@ -262,41 +262,28 @@ app.delete("/api/timetable/:id", (req, res) => {
 });
 
 app.post("/api/to_do", (req, res) => {
-  const { id, title } = req.body;
+  const { title } = req.body;
 
   if (!title) {
-    return res.status(400).json({ error: "Fehlende Felder!" });
+    return res.status(400).json({ error: "Titel ist erforderlich!" });
   }
 
-  const sql = `
-    INSERT INTO to_do (d, title)
-    VALUES (?, ?)
-  `;
-
-  const values = [id, title];
-
-  pool.query(sql, values, (err, result) => {
+  const sql = `INSERT INTO to_do (title) VALUES (?)`;
+  pool.query(sql, [title], (err, result) => {
     if (err) {
-      console.error("Fehler beim Eintragen in To-Do:", err);
-      return res.status(500).json({ error: "Fehler beim Eintragen" });
+      console.error("Fehler beim Hinzufügen der To-Do:", err);
+      return res.status(500).json({ error: "Fehler beim Hinzufügen" });
     }
 
-    res.status(201).json({ id: result.insertId, ...req.body });
+    res.status(201).json({ id: result.insertId, title });
   });
 });
 
-app.get("/api/to_do/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = `
-    SELECT t.*, l.title, l.room
-    FROM to_do t
-    JOIN lectures l ON t.lecture_id = l.id
-    WHERE t.user_id = ?
-  `;
-
-  pool.query(sql, [id], (err, results) => {
+app.get("/api/to_do", (req, res) => {
+  const sql = "SELECT * FROM to_do ORDER BY id DESC";
+  pool.query(sql, (err, results) => {
     if (err) {
-      console.error("Fehler beim Abrufen der To-Do-Liste:", err);
+      console.error("Fehler beim Abrufen der To-Dos:", err);
       return res.status(500).json({ error: "Fehler beim Abrufen" });
     }
     res.json(results);
@@ -309,13 +296,13 @@ app.delete("/api/to_do/:id", (req, res) => {
 
   pool.query(sql, [id], (err, results) => {
     if (err) {
-      console.error("Fehler beim Löschen des Eintrags:", err);
+      console.error("Fehler beim Löschen der To-Do:", err);
       return res.status(500).json({ error: "Fehler beim Löschen" });
     }
     if (results.affectedRows === 0) {
-      return res.status(404).json({ message: "Eintrag nicht gefunden" });
+      return res.status(404).json({ message: "To-Do nicht gefunden" });
     }
-    res.status(204).send();
+    res.status(204).send(); // Erfolgreich gelöscht, kein Inhalt
   });
 });
 

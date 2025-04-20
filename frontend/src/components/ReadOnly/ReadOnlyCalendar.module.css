@@ -1,0 +1,84 @@
+.calendarWrapper {
+  background: #fdfdfd;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  table-layout: fixed;
+  overflow-x: auto;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.calendar {
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.calendar th {
+  background-color: #f0f4f8;
+  padding: 0.5rem;
+  text-align: center;
+  width: 3rem;
+  height: 1rem;
+  border: 0.15rem solid #ddd;
+}
+
+.calendar td {
+  vertical-align: top;
+  padding: 0.3rem;
+  border: 0.15rem solid #ddd;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+.dayCell {
+  position: relative;
+  overflow: hidden;
+}
+
+.eventList {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.3rem;
+}
+
+.eventList li {
+  font-size: 0.75rem;
+  background: #eef;
+  margin-bottom: 0.2rem;
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+  white-space: nowrap; /* verhindert Umbruch */
+  overflow: hidden; /* blendet überflüssigen Text aus */
+  text-overflow: ellipsis; /* zeigt "..." an */
+  width: 100%;
+}
+
+.eventDots {
+  display: flex;
+  gap: 0.2rem;
+  margin-top: 0.3rem;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #574f7d; /* oder eine andere Farbe */
+  border-radius: 50%;
+}
+
+.moreHint {
+  font-size: 0.7rem;
+  color: #666;
+  margin-left: 2px;
+}
+
+.today {
+  background-color: #e4f5ff; /* hellblau als Markierung */
+  border: 2px solid #35a2fc;
+  border-radius: 0.5rem;
+}

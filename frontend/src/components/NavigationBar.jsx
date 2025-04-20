@@ -43,7 +43,7 @@ const NavigationBar = () => {
             className={styles.text}
             onClick={() => setMenuOpen(false)}
           >
-            🏠 Home
+            🏠 Startseite
           </NavLink>
         </h1>
         <h1 className={styles.box}>

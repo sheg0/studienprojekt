@@ -1,16 +1,52 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/NotesPageStyles.module.css";
 import PdfUpload from "../components/PdfUpload";
+import DeleteModal from "../components/Modal/DeleteModal";
+import Toast from "../components/Toast";
+import AddLectureModal from "../components/Modal/AddLectureModal";
 
 const NotesPage = () => {
   const [lectures, setLectures] = useState([]);
   const [notes, setNotes] = useState([]);
+  const [activeLectureId, setActiveLectureId] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [noteToDelete, setNoteToDelete] = useState(null);
+  const [showToast, setShowToast] = useState(false);
+  const [newLectureTitle, setNewLectureTitle] = useState("");
+  const [newLectureRoom, setNewLectureRoom] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleAddLecture = async ({ title, room }) => {
+    try {
+      const res = await fetch("http://localhost:3000/api/lectures", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          room,
+        }),
+      });
+
+      if (res.ok) {
+        setNewLectureTitle("");
+        setNewLectureRoom("");
+        fetchLectures();
+      } else {
+        console.error("Fehler beim Hinzufügen der Lecture:", res.statusText);
+      }
+    } catch (err) {
+      console.error("Fehler beim Hinzufügen der Lecture:", err);
+    }
+  };
 
   const fetchLectures = async () => {
     try {
       const res = await fetch("http://localhost:3000/api/lectures");
       const data = await res.json();
       setLectures(data);
+      if (data.length > 0) setActiveLectureId(data[0].id); // default wählen
     } catch (err) {
       console.error("Fehler beim Laden der Lectures:", err);
     }
@@ -21,7 +57,6 @@ const NotesPage = () => {
       const res = await fetch("http://localhost:3000/api/notes_lectures");
       const data = await res.json();
 
-      // Gruppiere Notizen nach lecture_id
       const grouped = {};
       data.forEach((note) => {
         if (!grouped[note.lecture_id]) grouped[note.lecture_id] = [];
@@ -35,23 +70,23 @@ const NotesPage = () => {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Möchtest du diese Notiz wirklich löschen?")) return;
-
+    if (!noteToDelete) return;
     try {
-      const response = await fetch(
-        `http://localhost:3000/api/notes_lectures/${id}`,
+      const res = await fetch(
+        `http://localhost:3000/api/notes_lectures/${noteToDelete}`,
         {
           method: "DELETE",
         }
       );
 
-      if (response.ok) {
-        fetchNotes(); // refetch after delete
+      if (res.ok) {
+        fetchNotes();
+        setNoteToDelete(null);
       } else {
-        console.error("Fehler beim Löschen der Notiz:", response.statusText);
+        console.error("Fehler beim Löschen der Notiz:", res.statusText);
       }
     } catch (err) {
-      console.error("Fehler beim Löschen der Notiz:", err);
+      console.error("Fehler beim Löschen:", err);
     }
   };
 
@@ -60,31 +95,60 @@ const NotesPage = () => {
     fetchNotes();
   }, []);
 
+  useEffect(() => {
+    const handleToast = () => setShowToast(true);
+    window.addEventListener("pdf-upload-success", handleToast);
+    return () => window.removeEventListener("pdf-upload-success", handleToast);
+  }, []);
+
+  const selectedNotes = notes[activeLectureId] || [];
+
   return (
     <div className={styles.container}>
-      <h1 className="text-2xl font-bold mb-6">📚 Notizen & Lernmaterialien</h1>
-      <div className="space-y-6">
-        {lectures.map((lecture) => (
-          <div key={lecture.id} className={styles.lectureBox}>
-            <h2 className="text-xl font-semibold">{lecture.title}</h2>
-            <PdfUpload
-              lectureId={lecture.id}
-              onUploaded={fetchNotes} // refresht nach Upload
-            />
+      <h1 className={styles.title}>📚 Notizen & Lernmaterialien</h1>
+      <div className={styles.addLectureContainer}>
+        {/* Navbar mit Lectures */}
 
-            {notes[lecture.id] && notes[lecture.id].length > 0 ? (
-              <div className="mt-2 space-y-2">
-                {notes[lecture.id].map((note) => (
-                  <div key={note.id} className={styles.noteCard}>
-                    <strong>{note.title}</strong>
-                    <p className="text-sm text-gray-600">
-                      Hochgeladen am:{" "}
-                      {new Date(note.created_at).toLocaleDateString("de-DE", {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "numeric",
-                      })}
-                    </p>
+        <div className={styles.navbar}>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className={styles.lectureButton}
+          >
+            +
+          </button>
+          {lectures.map((lec) => (
+            <button
+              key={lec.id}
+              className={`${styles.navItem} ${
+                activeLectureId === lec.id ? styles.active : ""
+              }`}
+              onClick={() => setActiveLectureId(lec.id)}
+            >
+              {lec.title}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {activeLectureId && (
+        <>
+          <PdfUpload lectureId={activeLectureId} onUploaded={fetchNotes} />
+          <input
+            type="text"
+            placeholder="🔎 PDF-Titel suchen..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className={styles.searchInput}
+          />
+
+          <div className={styles.notesList}>
+            {selectedNotes
+              .filter((note) =>
+                note.title.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+              .map((note) => (
+                <div key={note.id} className={styles.noteCard}>
+                  <div className={styles.noteContainer}>
                     <a
                       href={`http://localhost:3000/uploads/${note.pdf_url
                         .split("\\")
@@ -93,27 +157,46 @@ const NotesPage = () => {
                         .pop()}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 underline"
+                      className={styles.noteLink}
                     >
-                      PDF öffnen
+                      <strong>{note.title}</strong>
                     </a>
-                    <button
-                      onClick={() => handleDelete(note.id)}
-                      style={{ marginLeft: "1rem", color: "red" }}
-                    >
-                      ❌ Löschen
-                    </button>
+                    <p>
+                      Hochgeladen am:{" "}
+                      {new Date(note.created_at).toLocaleDateString("de-DE", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                      })}
+                    </p>
                   </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-gray-500 mt-2">
-                Noch keine Notizen vorhanden.
-              </p>
-            )}
+                  <button
+                    onClick={() => setNoteToDelete(note.id)}
+                    className={styles.deleteButton}
+                  >
+                    Löschen
+                  </button>
+                </div>
+              ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
+      {noteToDelete && (
+        <DeleteModal
+          onConfirm={() => {
+            handleDelete(noteToDelete);
+            setNoteToDelete(null);
+          }}
+          onCancel={() => setNoteToDelete(null)}
+        />
+      )}
+      {showToast && <Toast message="✅ PDF erfolgreich hochgeladen!" />}
+      {isModalOpen && (
+        <AddLectureModal
+          onClose={() => setIsModalOpen(false)}
+          onAdd={handleAddLecture}
+        />
+      )}
     </div>
   );
 };

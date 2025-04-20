@@ -7,6 +7,7 @@
  * Dependencies  : e.g. React, Axios, etc.
  */
 import React, { useState } from "react";
+import styles from "../styles/NotesPageStyles.module.css";
 
 const PdfUpload = ({ lectureId, onUploaded }) => {
   const [file, setFile] = useState(null);
@@ -27,11 +28,12 @@ const PdfUpload = ({ lectureId, onUploaded }) => {
         body: formData,
       });
       const data = await res.json();
-      alert("PDF hochgeladen ✅");
+      window.dispatchEvent(new Event("pdf-upload-success"));
       setTitle("");
       setFile(null);
-      if (onUploaded) onUploaded();
-      console.log(data);
+      if (onUploaded) {
+        onUploaded();
+      }
     } catch (err) {
       console.error("Fehler beim Hochladen:", err);
     }
@@ -44,13 +46,17 @@ const PdfUpload = ({ lectureId, onUploaded }) => {
         placeholder="Titel"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        className={styles.searchInput}
       />
       <input
         type="file"
         accept="application/pdf"
         onChange={(e) => setFile(e.target.files[0])}
+        className={styles.fileInput}
       />
-      <button type="submit">📤 Hochladen</button>
+      <button type="submit" className={styles.submitButton}>
+        📤 Hochladen
+      </button>
     </form>
   );
 };

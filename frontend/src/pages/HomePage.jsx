@@ -9,6 +9,9 @@
 import React, { useEffect } from "react";
 import styles from "../styles/HomePageStyles.module.css";
 import { getGreeting } from "../services/api";
+import ToDoList from "../components/ToDo/ToDoList";
+import ReadOnlyCalendar from "../components/ReadOnly/ReadOnlyCalendar";
+import ReadOnlyTimetable from "../components/ReadOnly/ReadOnlyTimetable";
 
 const HomePage = () => {
   const [greeting, setGreeting] = React.useState("");
@@ -19,9 +22,17 @@ const HomePage = () => {
 
   return (
     <div className={styles.container}>
-      Dies ist die Startseite
-      <p>Hier Anzeige von Stundenplan, Kalender, To-Do-Liste</p>
-      <p>Backend says: {greeting}</p>
+      <div className={styles.todoRow}>
+        <ToDoList />
+      </div>
+      <div className={styles.bottomRow}>
+        <div className={styles.calendar}>
+          <ReadOnlyCalendar />
+        </div>
+        <div className={styles.timetable}>
+          <ReadOnlyTimetable />
+        </div>
+      </div>
     </div>
   );
 };
