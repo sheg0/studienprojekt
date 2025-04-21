@@ -9,6 +9,12 @@
   cursor: pointer;
 }
 
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
 .calendar {
   table-layout: fixed;
   border-collapse: collapse;
@@ -16,7 +22,7 @@
 }
 
 .calendar th {
-  background-color: #f0f4f8;
+  background-color: #bea1d62a;
   padding: 0.5rem;
   text-align: center;
   width: 3rem;
@@ -67,7 +73,7 @@
 .dot {
   width: 8px;
   height: 8px;
-  background-color: #574f7d; /* oder eine andere Farbe */
+  background-color: #574f7d;
   border-radius: 50%;
 }
 
@@ -78,7 +84,5 @@
 }
 
 .today {
-  background-color: #e4f5ff; /* hellblau als Markierung */
-  border: 2px solid #35a2fc;
-  border-radius: 0.5rem;
+  background-color: #bea1d64b;
 }

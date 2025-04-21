@@ -13,6 +13,8 @@ import LectureModal from "./LectureModal";
 import TimetableAddModal from "./TimetableAddModal";
 import LectureListModal from "./LectureListModal";
 import Modal from "./Modal";
+import { FaPlus } from "react-icons/fa6";
+import LectureDeleteModal from "./Modal/LectureDeleteModal";
 
 // Days and slots für timetable
 const days = ["Mo", "Di", "Mi", "Do", "Fr"];
@@ -34,6 +36,9 @@ const Lectures = () => {
   const [showTimetableModal, setShowTimetableModal] = useState(false);
   const [showLectureListModal, setShowLectureListModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [lectureToDelete, setLectureToDelete] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const renderedCells = new Set();
   const [newLecture, setNewLecture] = useState({
     title: "",
     date: "",
@@ -48,25 +53,9 @@ const Lectures = () => {
       .catch(console.error);
   };
 
-  const handleRemoveTimetableEntry = async (entryId) => {
-    try {
-      await fetch(`http://localhost:3000/api/timetable/${entryId}`, {
-        method: "DELETE",
-      });
-      setTimetable((prev) => prev.filter((e) => e.id !== entryId));
-    } catch (err) {
-      console.error("Fehler beim Löschen aus Stundenplan:", err);
-    }
-  };
-
   useEffect(() => {
     fetchLectures().then(setLectures).catch(console.error);
     fetchTimetable();
-    // Load timetable entries
-    // fetch("http://localhost:3000/api/timetable/1")
-    //   .then((res) => res.json())
-    //   .then(setTimetable)
-    //   .catch(console.error);
   }, []);
 
   const handleCreateLecture = async () => {
@@ -91,6 +80,7 @@ const Lectures = () => {
   };
 
   const handleDeleteLecture = async (id) => {
+    console.log("Deleting lecture with ID:", id);
     try {
       await fetch(`http://localhost:3000/api/lectures/${id}`, {
         method: "DELETE",
@@ -99,6 +89,18 @@ const Lectures = () => {
       setLectures((prev) => prev.filter((lec) => lec.id !== id));
     } catch (err) {
       console.error("Fehler beim Löschen der Vorlesung:", err);
+    }
+  };
+
+  const handleDeleteTimetableEntry = async (id) => {
+    console.log("Deleting timetable entry with ID:", id);
+    try {
+      await fetch(`http://localhost:3000/api/timetable/${id}`, {
+        method: "DELETE",
+      });
+      setTimetable((prev) => prev.filter((entry) => entry.id !== id));
+    } catch (err) {
+      console.error("Fehler beim Löschen des Stundenplan-Eintrags:", err);
     }
   };
 
@@ -119,7 +121,8 @@ const Lectures = () => {
           onClick={() => setShowLectureModal(true)}
           className={styles.buttonInput}
         >
-          ➕ Neue Vorlesung
+          <FaPlus style={{ marginRight: "0.5rem" }} />
+          Neue Vorlesung
         </button>
         <button
           onClick={() => setShowTimetableModal(true)}
@@ -194,23 +197,32 @@ const Lectures = () => {
 
                 {days.map((day) => {
                   const entry = getEntry(day, slot);
+                  const key = `${day}-${slot}`;
+                  if (renderedCells.has(key)) return null;
+                  if (
+                    !entry ||
+                    entry.slot_start !== slot ||
+                    renderedCells.has(key)
+                  ) {
+                    return <td key={key}></td>;
+                  }
+                  for (let i = entry.slot_start; i <= entry.slot_end; i++) {
+                    renderedCells.add(`${day}-${i}`);
+                  }
+
                   return (
-                    <td key={day + slot}>
-                      {entry ? (
-                        <div className={styles.entryBox}>
-                          <strong>{entry.title}</strong>
-                          <small>{entry.room}</small>
-                          <button
-                            title="Löschen"
-                            onClick={() => handleRemoveTimetableEntry(entry.id)}
-                            className={styles.deleteButton}
-                          >
-                            ❌
-                          </button>
-                        </div>
-                      ) : (
-                        ""
-                      )}
+                    <td
+                      key={key}
+                      rowSpan={entry.slot_end - entry.slot_start + 1}
+                      onClick={() => {
+                        setLectureToDelete(entry);
+                        setShowDeleteModal(true);
+                      }}
+                    >
+                      <div className={styles.entryBox}>
+                        <strong>{entry.title}</strong>
+                        <small>{entry.room}</small>
+                      </div>
                     </td>
                   );
                 })}
@@ -219,6 +231,18 @@ const Lectures = () => {
           </tbody>
         </table>
       </div>
+      {showDeleteModal && lectureToDelete && (
+        <Modal onClose={() => setShowDeleteModal(false)}>
+          <LectureDeleteModal
+            lecture={lectureToDelete}
+            onDelete={(id) => {
+              handleDeleteTimetableEntry(id);
+              setShowDeleteModal(false);
+            }}
+            onCancel={() => setShowDeleteModal(false)}
+          />
+        </Modal>
+      )}
     </div>
   );
 };

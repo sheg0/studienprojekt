@@ -1,6 +1,7 @@
 .container {
-  width: 80%;
-  margin: 1rem;
+  width: 97.5%;
+  /* margin: 1rem; */
+  margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 1rem;
   background-color: #f9f9f9;
@@ -8,7 +9,7 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -19,17 +20,20 @@
 }
 
 .inputField {
-  flex: 1;
+  width: 100%;
   padding: 0.5rem;
-  border-radius: 8px;
   border: 1px solid #ccc;
+  border-radius: 8px;
+
+  font-size: 1rem;
 }
 
 .addButton {
   margin-left: 0.5rem;
   padding: 0 0.8rem;
-  font-size: 1.2rem;
-  background-color: #2196f3;
+  font-size: 1.5rem;
+  background-color: #9d4edd;
+  font-weight: 500;
   color: white;
   border: none;
   border-radius: 8px;
@@ -38,7 +42,7 @@
 }
 
 .addButton:hover {
-  background-color: #1976d2;
+  background-color: #7b2cbf;
 }
 
 .todoList {
@@ -63,10 +67,11 @@
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  color: #e53935;
-  transition: color 0.2s ease;
+  color: gray;
+  transition: color 0.2s ease, filter 0.2s ease;
+  filter: grayscale(100%);
 }
 
 .deleteButton:hover {
-  color: #b71c1c;
+  filter: grayscale(0%);
 }

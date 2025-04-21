@@ -9,20 +9,26 @@
   cursor: pointer;
 }
 
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 80px repeat(5, 1fr); /* Zeitspalte + 5 Wochentage */
-  border: 1px solid #ddd;
+  border: 0.1rem solid #ddd;
 }
 
 .cell {
   padding: 0.5rem;
-  border: 1px solid #ddd;
+  border: 0.1rem solid #ddd;
   text-align: center;
   min-height: 2rem;
 }
 
 .header {
   font-weight: bold;
-  background-color: #f0f0f0;
+  background-color: #bea1d62a;
 }

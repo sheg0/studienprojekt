@@ -48,7 +48,7 @@ const ToDoList = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>📝 To-Do Liste</h2>
+      <h3 className={styles.title}>📝 To-Do Liste</h3>
       <div className={styles.inputGroup}>
         <input
           type="text"
@@ -58,7 +58,7 @@ const ToDoList = () => {
           className={styles.inputField}
         />
         <button onClick={addTodo} className={styles.addButton}>
-          ➕
+          +
         </button>
       </div>
 
@@ -73,7 +73,7 @@ const ToDoList = () => {
                 onClick={() => deleteTodo(todo.id)}
                 className={styles.deleteButton}
               >
-                🗑️
+                ✅
               </button>
             </li>
           ))}

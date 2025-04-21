@@ -73,7 +73,7 @@
 }
 
 .buttonInput {
-  background-color: #1b5496;
+  background-color: #9d4edd;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -84,7 +84,7 @@
 }
 
 .buttonInput:hover {
-  background-color: #0073ee;
+  background-color: #7b2cbf;
 }
 
 .periodContent {

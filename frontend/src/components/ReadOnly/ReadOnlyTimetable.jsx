@@ -38,7 +38,7 @@ const ReadOnlyTimetable = () => {
       className={styles.readOnlyTimetable}
       onClick={() => navigate("/lectures")}
     >
-      <h3>📅 Mein Stundenplan</h3>
+      <h3 className={styles.title}>📅 Mein Stundenplan</h3>
       <div className={styles.grid}>
         <div className={`${styles.cell} ${styles.header}`}>🕒</div>
         {weekdays.map((day) => (

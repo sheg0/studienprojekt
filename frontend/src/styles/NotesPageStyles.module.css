@@ -108,7 +108,7 @@
 }
 
 .submitButton {
-  background-color: #1b5496;
+  background-color: #9d4edd;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -120,7 +120,7 @@
 }
 
 .submitButton:hover {
-  background-color: #0073ee;
+  background-color: #7b2cbf;
 }
 
 .addLectureForm {
@@ -160,18 +160,19 @@
 }
 
 .lectureButton {
-  background-color: #1b5496;
+  background-color: #9d4edd;
   color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  font-weight: 500;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   cursor: pointer;
-  font-size: 1rem;
   max-height: fit-content;
   /* margin-left: auto; */
   transition: background-color 0.2s ease;
 }
 
 .lectureButton:hover {
-  background-color: #0073ee;
+  background-color: #7b2cbf;
 }
