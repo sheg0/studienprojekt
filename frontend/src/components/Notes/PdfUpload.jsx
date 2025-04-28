@@ -7,7 +7,7 @@
  * Dependencies  : e.g. React, Axios, etc.
  */
 import React, { useState } from "react";
-import styles from "../styles/NotesPageStyles.module.css";
+import styles from "../../styles/NotesPageStyles.module.css";
 
 const PdfUpload = ({ lectureId, onUploaded }) => {
   const [file, setFile] = useState(null);

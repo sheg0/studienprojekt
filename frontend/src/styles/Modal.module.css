@@ -14,8 +14,8 @@
 
 .modal {
   background: white;
-  width: 90%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 40rem;
   max-height: 80vh;
   overflow-y: auto;
   border-radius: 1rem;
@@ -24,10 +24,14 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
+.modal h2 {
+  word-break: break-all;
+}
+
 .modalBig {
   background: white;
   width: 90%;
-  width: 600px;
+  width: 40rem;
   height: 80vh;
   overflow-y: auto;
   border-radius: 1rem;
@@ -64,10 +68,10 @@
 }
 
 .selectInput {
-  width: 100%;
+  width: 97.5%;
   padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   margin-bottom: 1rem;
   font-size: 1rem;
 }
@@ -77,7 +81,7 @@
   color: white;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 0.75rem;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.2s ease;
@@ -93,11 +97,20 @@
   gap: 1rem;
 }
 
+.typeInput {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 30%;
+  margin-right: 1rem;
+}
+
 .periodInput {
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 0.75rem;
   align-items: center;
   margin-bottom: 1rem;
+  padding: 0.5rem;
 }
 
 .lectureItem {
@@ -121,13 +134,28 @@
   color: rgb(236, 56, 56);
 }
 
+.deleteBtn {
+  background: #f00;
+  border: none;
+  border-radius: 0.75rem;
+  color: rgb(255, 255, 255);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.deleteBtn:hover {
+  background: #d00;
+}
+
 .cancelButton {
   background-color: #ccc;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   margin-left: 1rem;
-  border-radius: 8px;
+  border-radius: 0.75rem;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.2s ease;

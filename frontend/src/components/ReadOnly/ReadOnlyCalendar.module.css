@@ -55,9 +55,9 @@
   margin-bottom: 0.2rem;
   padding: 0.2rem;
   border-radius: 0.4rem;
-  white-space: nowrap; /* verhindert Umbruch */
-  overflow: hidden; /* blendet überflüssigen Text aus */
-  text-overflow: ellipsis; /* zeigt "..." an */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   width: 100%;
 }
 

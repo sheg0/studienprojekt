@@ -8,9 +8,98 @@
   background-color: #f4f4f4;
 }
 
-@media (max-width: 768px) {
+/* Styling für Mobile (Smartphone) bis 767px*/
+@media (max-width: 767px) {
   .container {
-    margin-left: 70px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    border-radius: 1.5rem;
+    background-color: #f4f4f4;
+  }
+}
+
+/* Styling für Tablet 767-991px*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
+}
+
+/* Styling für kleine Monitore (Laptops) 992–1199px*/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
+}
+
+/* Styling für große Monitore (Desktop) 1200–1359px*/
+@media (min-width: 1200px) {
+  .container {
+    margin-left: 15rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
+}
+
+/* HD Monitore (1360–1919px) */
+@media (min-width: 1360px) and (max-width: 1919px) {
+  .container {
+    margin-left: 16rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
+}
+
+/* Full-HD Monitore (1920–2559px) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .container {
+    margin-left: 16rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
+}
+
+/* 2K Monitore (2560–3839px) */
+@media (min-width: 2560px) and (max-width: 3839px) {
+  .container {
+    margin-left: 16rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
+}
+
+/* 4K Monitore (ab 3840px) */
+@media (min-width: 3840px) {
+  .container {
+    margin-left: 16rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
   }
 }
 
@@ -20,11 +109,35 @@
   margin-bottom: 1.5rem;
 }
 
+.addLectureContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-left: auto;
+}
+
 .navbar {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.lectureButton {
+  background-color: #9d4edd;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  max-height: fit-content;
+  transition: background-color 0.2s ease;
+}
+
+.lectureButton:hover {
+  background-color: #7b2cbf;
 }
 
 .navItem {
@@ -43,6 +156,23 @@
 .active {
   background-color: #6b52c2;
   color: white;
+}
+
+.notesContainer {
+  padding: 1rem;
+  overflow-y: auto;
+  background: #fdfdfd;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.searchInput {
+  width: 50%;
+  padding: 0.5rem;
+  border: 0.15rem solid #ccc;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .notesList {
@@ -86,15 +216,6 @@
 
 .noteLink:hover {
   text-decoration: underline;
-}
-
-.searchInput {
-  width: 50%;
-  padding: 0.5rem;
-  border: 0.15rem solid #ccc;
-  border-radius: 0.75rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
 }
 
 .fileInput {
@@ -149,30 +270,4 @@
 
 .addLectureForm button:hover {
   background-color: #388e3c;
-}
-
-.addLectureContainer {
-  display: flex;
-  /* gap: 1rem; */
-  align-items: center;
-  margin-bottom: 1rem;
-  margin-left: auto;
-}
-
-.lectureButton {
-  background-color: #9d4edd;
-  color: rgb(255, 255, 255);
-  font-size: 1.2rem;
-  font-weight: 500;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  cursor: pointer;
-  max-height: fit-content;
-  /* margin-left: auto; */
-  transition: background-color 0.2s ease;
-}
-
-.lectureButton:hover {
-  background-color: #7b2cbf;
 }

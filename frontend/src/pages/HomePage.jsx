@@ -14,12 +14,6 @@ import ReadOnlyCalendar from "../components/ReadOnly/ReadOnlyCalendar";
 import ReadOnlyTimetable from "../components/ReadOnly/ReadOnlyTimetable";
 
 const HomePage = () => {
-  const [greeting, setGreeting] = React.useState("");
-
-  useEffect(() => {
-    getGreeting().then((data) => setGreeting(data.greeting));
-  }, []);
-
   return (
     <div className={styles.container}>
       <div className={styles.todoRow}>

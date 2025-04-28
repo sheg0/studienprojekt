@@ -1,298 +1,286 @@
-/* ExamsPageStyles.module.css */
-
+/* Styling für alle Geräte */
 .container {
   margin-left: 15rem;
-  margin-right: 2rem;
+  margin-right: 5rem;
   margin-top: 2rem;
   padding: 2rem;
   border-radius: 2rem;
   background-color: #f4f4f4;
 }
 
-@media (max-width: 768px) {
+/* Styling für Mobile (Smartphone) bis 767px*/
+@media (max-width: 767px) {
   .container {
-    margin-left: 70px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    border-radius: 1.5rem;
+    background-color: #f4f4f4;
   }
 }
 
-.calendarWrapper {
-  max-width: 100%;
-  margin: auto;
-
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  border-radius: 1rem;
-  padding: 1rem;
-  font-family: "Montserrat", sans-serif;
+/* Styling für Tablet 767-991px*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
 }
 
-.calendarHeader {
-  max-width: 100%;
-  display: table;
-  gap: 1rem;
-  align-items: center;
-  margin-left: 2rem;
+/* Styling für kleine Monitore (Laptops) 992–1199px*/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
 }
 
-.calendarHeader button {
-  color: black;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 0.5rem;
+/* Styling für große Monitore (Desktop) 1200–1359px*/
+@media (min-width: 1200px) {
+  .container {
+    margin-left: 15rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
 }
 
-.calendarGrid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  /* grid-auto-rows: 5rem; */
-  background-color: #ccc;
-  border-radius: 1rem;
+/* HD Monitore (1360–1919px) */
+@media (min-width: 1360px) and (max-width: 1919px) {
+  .container {
+    margin-left: 16rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
 }
 
-.calendarDayName {
-  background-color: #bea1d62a;
-  font-weight: bold;
-  text-align: center;
-  padding: 0.3rem;
-  font-size: 1rem;
-  color: #333;
-  border: 1px solid #ccc;
+/* Full-HD Monitore (1920–2559px) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .container {
+    margin-left: 16rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
 }
 
-/* .calendarDayName {
-  font-weight: bold;
-  text-align: center;
-  color: #070f2b;
-  height: 2rem;
-  border-right: 0.15rem solid #b6b6b6;
-  border-bottom: 0.15rem solid #b6b6b6;
-} */
+/* 2K Monitore (2560–3839px) */
+@media (min-width: 2560px) and (max-width: 3839px) {
+  .container {
+    margin-left: 16rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
+}
 
-.calendarCell {
-  background-color: #fff;
+/* 4K Monitore (ab 3840px) */
+@media (min-width: 3840px) {
+  .container {
+    margin-left: 16rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #f4f4f4;
+  }
+}
+
+/* ------------------
+      Modal Side Styling 
+      -------------------*/
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: top;
-  padding: 0.5rem;
-  font-size: 0.85rem;
-  border-radius: 0.4rem;
-  overflow: hidden;
-  position: relative;
-  border-right: 0.15rem solid #b6b6b6;
-  border-bottom: 0.15rem solid #b6b6b6;
+  align-items: center;
+  justify-content: center;
 }
 
-/* .calendarCell {
-  height: 6rem;
-  width: 7rem;
-  display: center;
-  align-items: top;
-  font-size: 1rem;
-  padding: 1rem;
-  text-align: center;
-  border-right: 0.15rem solid #b6b6b6;
-  border-bottom: 0.15rem solid #b6b6b6;
-} */
-
-.calendarCell:hover {
-  background-color: #f0f8ff;
-  cursor: pointer;
-}
-.today {
-  background-color: #d2e4ff;
-  border: 0.15rem solid #1b5496;
-  font-weight: bold;
-}
-
-.calendarCell.empty {
-  background-color: #f4f4f4;
-  border: none;
+.modalContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .calendarContent {
   display: flex;
-  flex-direction: row;
-  gap: 3rem;
-  padding: 0.5rem;
+  gap: 2rem;
 }
 
-.eventList {
-  flex: 1;
-  max-width: 45vh;
-  background-color: #f4f4f4;
+/* ------------------
+      Left Side Styling 
+      -------------------*/
+.eventListLeft {
+  flex: 0 0 30%; /* nimmt 30% der Breite ein */
+  max-width: 30%;
+  height: 48rem;
   padding: 1rem;
-  border-radius: 1rem;
   overflow-y: auto;
-  max-height: 75vh;
-}
-
-.calendarRight {
-  flex: 2;
-}
-
-.deleteButton {
-  background-color: transparent;
-  border: none;
-  color: red;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.deleteButton:hover {
-  color: darkred;
-}
-
-.calendarContent > div:first-child {
-  flex: 2;
-}
-
-.calendarContent > div:last-child {
-  flex: 3;
-}
-
-.weekend {
-  background-color: #d9d9d9;
-  color: black;
-  font-weight: bold;
+  scrollbar-width: none;
+  background: #fdfdfd;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .eventItem {
-  color: black;
-  border-radius: 0.5rem;
   padding: 0.5rem;
-  margin: 0.2rem;
-  font-size: 0.9rem;
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
   display: flex;
-  word-break: break-word;
-  justify-content: space-between;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
 }
 
-/* .calendarCell .eventItem {
-  background-color: #ccc;
-  color: #fff;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.5rem;
-  font-size: 0.7rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-word;
-} */
-
-.calendarCell .eventItem {
-  margin: 0.2rem;
-  padding: 0.2rem;
-  border-radius: 0.4rem;
-  color: whitesmoke;
-  font-size: 0.75rem;
-  width: 100%;
-  word-break: break-word;
-  max-height: 2rem;
+.deleteButton {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin-left: auto; /* verschiebt den Button nach rechts */
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  opacity: 0.8;
+  transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.dayInCell {
-  display: center;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #070f2b;
+.deleteButton:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
-.outsideMonth {
-  background-color: #f4f4f4;
-  color: #999;
-}
-
-.outsideMonth .eventItem {
-  opacity: 0.6;
-}
-
-.weekend {
-  background-color: #e0e0e0;
-  color: #333;
-  font-weight: bold;
-}
-
-.outsideMonth.weekend {
-  background-color: #ddd; /* heller als reguläres Wochenende */
-  color: #888;
-}
-
-.overlay {
-  position: flex;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal {
-  background: white;
-  width: 90%;
-  max-width: 600px;
-  max-height: 80vh;
-  overflow-y: auto;
+/* ------------------
+      Right Side Styling 
+      -------------------*/
+.calendarRight {
+  flex: 1; /* nimmt den restlichen Platz ein */
+  padding: 1rem;
+  background: #fdfdfd;
   border-radius: 1rem;
-  padding: 2rem;
-  position: relative;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.eventContent {
+.calendarHeader {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   gap: 1rem;
 }
 
-.closeButton {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
+.calendarHeader button {
   border: none;
-  font-size: 1.5rem;
-  color: #999;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.closeButton:hover {
-  color: #f00;
-}
-
-.selectInput {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  background-color: transparent;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
   font-size: 1rem;
-}
-
-.buttonInput {
-  background-color: #1b5496;
-  color: white;
-  border: none;
+  cursor: pointer;
+  border-radius: 1rem;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.2s ease;
 }
 
-.buttonInput:hover {
-  background-color: #0073ee;
+.calendarHeader button:hover {
+  background-color: #9d4edd;
+  color: white;
+  transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.periodInput {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  align-items: center;
-  margin-bottom: 1rem;
+/* Innerer Kalender-Grid */
+.calendarContainer {
+  width: 100%;
+}
+
+.calendarWrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* grid-auto-rows: minmax(6rem, auto); */
+  gap: 0.5rem;
+}
+
+.calendarDayNames {
+  background-color: #bea1d62a;
+  border-radius: 1rem;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 0.5rem;
+  height: 2rem;
+}
+
+.calendarCell {
+  background-color: #fdfdfd;
+  height: 6.5rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.calendarCell:hover {
+  background-color: #f0f0f0;
+  transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.calendarCell.today {
+  background-color: #bea1d64b;
+  border: 0.15rem solid #bea1d64b;
+}
+
+.calendarCell.today .dayInCell {
+  color: #9052c2;
+  font-weight: bold;
+}
+
+.eventInCalendar {
+  color: white;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eventDot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.outsideMonth {
+  background-color: #fcfcfc;
+  color: #a5a5a5;
 }

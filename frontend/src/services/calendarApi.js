@@ -1,24 +1,23 @@
-const API_URL = "http://localhost:3000/api/events";
+const API_URL = "http://localhost:3000";
 
-// 🟡 1. Fetch all events
 export const fetchEvents = async () => {
-  const res = await fetch(API_URL);
-  return res.json(); // returns [{ id, title, date, type, ... }]
+  const res = await fetch("http://localhost:3000/api/events");
+  return res.json();
 };
 
-// 🟢 2. Create an event
-export const createEvent = async (eventData) => {
-  const res = await fetch(API_URL, {
+export const createEvent = async (event) => {
+  const res = await fetch("http://localhost:3000/api/events", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(eventData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(event),
   });
   return res.json();
 };
 
-// 🔴 3. Delete by ID
 export const deleteEvent = async (id) => {
-  await fetch(`${API_URL}/${id}`, {
+  await fetch(`${"http://localhost:3000/api/events"}/${id}`, {
     method: "DELETE",
   });
 };

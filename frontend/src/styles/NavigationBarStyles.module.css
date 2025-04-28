@@ -3,14 +3,13 @@
 /* Hamburger Menü Button (mobil sichtbar) */
 .mobileHeader {
   display: none;
-  background-color: #8fa3b6;
-  padding: 1rem;
+  padding: 0.75rem;
 }
 
 .hamburgerButton {
   background: none;
   border: none;
-  color: #9290c3;
+  color: #d3d3d3;
   cursor: pointer;
 }
 
@@ -79,8 +78,8 @@
   font-size: 1.5rem;
 }
 
-/* Responsive Verhalten */
-@media (max-width: 768px) {
+/* Styling für Mobile (Smartphone) bis 767px*/
+@media (max-width: 767px) {
   .mobileHeader {
     display: flex;
     justify-content: flex-start;
@@ -92,17 +91,42 @@
   }
 }
 
-/* Responsive Styling */
-@media (min-width: 768px) {
-  /* Auf größeren Bildschirmen immer sichtbar */
-  .container {
-    transform: translateX(0);
-    width: 12rem;
-    display: flex; /* Verhindert die Verschiebung der Sidebar auf großen Bildschirmen */
+/* Styling für Tablet 767-991px*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .mobileHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
-  /* Hamburger Button wird auf größeren Bildschirmen ausgeblendet */
+  .container {
+    width: 200px;
+  }
+}
+
+/* Styling für kleine Monitore (Laptops) 992–1199px*/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .mobileHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .container {
+    width: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
   .mobileHeader {
     display: none;
+  }
+
+  .container {
+    transform: translateX(0) !important;
+    width: 200px;
+  }
+  .container.hideMenu {
+    transform: translateX(0) !important;
   }
 }

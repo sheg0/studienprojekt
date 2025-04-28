@@ -7,7 +7,7 @@
  * Dependencies  : e.g. React, Axios, etc.
  */
 import React, { useEffect, useState } from "react";
-import styles from "../styles/Toast.module.css";
+import styles from "./Toast.module.css";
 
 const Toast = ({ message, duration = 3000 }) => {
   const [visible, setVisible] = useState(true);
