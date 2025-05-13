@@ -4,6 +4,7 @@ import PdfUpload from "./PdfUpload";
 import DeleteModal from "./DeleteModal";
 import Toast from "./Toast";
 import AddLectureModal from "./AddLectureModal";
+import Modal from "../Modal";
 
 const Notes = () => {
   const [lectures, setLectures] = useState([]);
@@ -15,6 +16,7 @@ const Notes = () => {
   const [newLectureTitle, setNewLectureTitle] = useState("");
   const [newLectureRoom, setNewLectureRoom] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleAddLecture = async ({ title, room }) => {
     try {
@@ -181,20 +183,25 @@ const Notes = () => {
         </div>
       )}
       {noteToDelete && (
-        <DeleteModal
-          onConfirm={() => {
-            handleDelete(noteToDelete);
-            setNoteToDelete(null);
-          }}
-          onCancel={() => setNoteToDelete(null)}
-        />
+        <Modal>
+          <DeleteModal
+            onConfirm={() => {
+              handleDelete(noteToDelete);
+              setNoteToDelete(null);
+            }}
+            onClose={() => setNoteToDelete(null)}
+            onCancel={() => setNoteToDelete(null)}
+          />
+        </Modal>
       )}
       {showToast && <Toast message="✅ PDF erfolgreich hochgeladen!" />}
       {isModalOpen && (
-        <AddLectureModal
-          onClose={() => setIsModalOpen(false)}
-          onAdd={handleAddLecture}
-        />
+        <Modal>
+          <AddLectureModal
+            onClose={() => setIsModalOpen(false)}
+            onAdd={handleAddLecture}
+          />
+        </Modal>
       )}
     </div>
   );

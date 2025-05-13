@@ -1,11 +1,14 @@
 // components/Modal/LectureDeleteModal.jsx
 import React from "react";
-import styles from "./LectureDeleteModal.module.css";
+import styles from "../../styles/Modal.module.css";
 
 const LectureDeleteModal = ({ lecture, onDelete, onCancel }) => {
   return (
-    <div className={styles.modalContent}>
+    <div className={styles.overlay}>
       <div className={styles.modal}>
+        <button className={styles.closeButton} onClick={onCancel}>
+          ✖
+        </button>
         <h3>❌ Vorlesung löschen</h3>
         <p>
           Möchtest du die Vorlesung <strong>{lecture.title}</strong> wirklich
@@ -18,7 +21,7 @@ const LectureDeleteModal = ({ lecture, onDelete, onCancel }) => {
           >
             Ja, löschen
           </button>
-          <button onClick={onCancel} className={styles.cancelBtn}>
+          <button onClick={onCancel} className={styles.cancelButton}>
             Abbrechen
           </button>
         </div>

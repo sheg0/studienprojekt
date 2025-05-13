@@ -1,3 +1,11 @@
+/**
+ * Filename      : ReadOnlyTimetable.jsx
+ * Author        : Esra Balci
+ * Created on    : 2025-04-29
+ * Description   : Short description of the file
+ * Version       : 1.0
+ * Dependencies  : e.g. React, Axios, etc.
+ */
 import React, { useEffect, useState } from "react";
 import styles from "./ReadOnlyTimetable.module.css";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +20,8 @@ const slots = [
   { label: "15:45 - 17:15", number: 6 },
   { label: "17:30 - 19:00", number: 7 },
 ];
+
+const renderedCells = new Set();
 
 const ReadOnlyTimetable = () => {
   const [entries, setEntries] = useState([]);
@@ -42,9 +52,9 @@ const ReadOnlyTimetable = () => {
       <div className={styles.grid}>
         <div className={`${styles.cell} ${styles.header}`}>🕒</div>
         {weekdays.map((day) => (
-          <div key={day} className={`${styles.cell} ${styles.header}`}>
+          <th key={day} className={`${styles.cell} ${styles.header}`}>
             {day}
-          </div>
+          </th>
         ))}
 
         {slots.map((slot) => (
@@ -63,7 +73,7 @@ const ReadOnlyTimetable = () => {
                       <small>{entry.room}</small>
                     </>
                   ) : (
-                    "-"
+                    ""
                   )}
                 </div>
               );

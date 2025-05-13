@@ -7,7 +7,7 @@
  * Dependencies  : e.g. React, Axios, etc.
  */
 import React, { useState, useEffect } from "react";
-import styles from "../styles/Modal.module.css";
+import styles from "../../styles/Modal.module.css";
 
 const TimetableAddModal = ({ onClose, onAdded }) => {
   const [lectures, setLectures] = useState([]);

@@ -4,7 +4,7 @@
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 1rem;
-  background-color: #f9f9f9;
+  background-color: var(--bg-inside-container);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
@@ -12,6 +12,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 .inputGroup {
@@ -24,7 +25,6 @@
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-
   font-size: 1rem;
 }
 
@@ -32,7 +32,7 @@
   margin-left: 0.5rem;
   padding: 0 0.8rem;
   font-size: 1.5rem;
-  background-color: #9d4edd;
+  background-color: var(--bg-button);
   font-weight: 500;
   color: white;
   border: none;
@@ -42,12 +42,13 @@
 }
 
 .addButton:hover {
-  background-color: #7b2cbf;
+  background-color: var(--bg-button-hover);
 }
 
 .todoList {
   list-style: none;
   padding: 0;
+  color: var(--text-color);
 }
 
 .todoItem {

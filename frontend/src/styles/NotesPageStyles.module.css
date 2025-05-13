@@ -5,7 +5,7 @@
   margin-top: 2rem;
   padding: 2rem;
   border-radius: 2rem;
-  background-color: #f4f4f4;
+  background-color: var(--bg-container);
 }
 
 /* Styling für Mobile (Smartphone) bis 767px*/
@@ -15,7 +15,7 @@
     margin-right: 2rem;
     margin-top: 0.5rem;
     border-radius: 1.5rem;
-    background-color: #f4f4f4;
+    background-color: var(--bg-container);
   }
 }
 
@@ -27,7 +27,7 @@
     margin-top: 0.5rem;
     padding: 2rem;
     border-radius: 2rem;
-    background-color: #f4f4f4;
+    background-color: var(--bg-container);
   }
 }
 
@@ -39,7 +39,7 @@
     margin-top: 0.5rem;
     padding: 2rem;
     border-radius: 2rem;
-    background-color: #f4f4f4;
+    background-color: var(--bg-container);
   }
 }
 
@@ -51,7 +51,7 @@
     margin-top: 2rem;
     padding: 2rem;
     border-radius: 2rem;
-    background-color: #f4f4f4;
+    background-color: var(--bg-container);
   }
 }
 
@@ -63,7 +63,7 @@
     margin-top: 2rem;
     padding: 2rem;
     border-radius: 2rem;
-    background-color: #f4f4f4;
+    background-color: var(--bg-container);
   }
 }
 
@@ -75,7 +75,7 @@
     margin-top: 2rem;
     padding: 2rem;
     border-radius: 2rem;
-    background-color: #f4f4f4;
+    background-color: var(--bg-container);
   }
 }
 
@@ -87,7 +87,7 @@
     margin-top: 2rem;
     padding: 2rem;
     border-radius: 2rem;
-    background-color: #f4f4f4;
+    background-color: var(--bg-container);
   }
 }
 
@@ -99,7 +99,7 @@
     margin-top: 2rem;
     padding: 2rem;
     border-radius: 2rem;
-    background-color: #f4f4f4;
+    background-color: var(--bg-container);
   }
 }
 
@@ -107,6 +107,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  color: var(--text-color);
 }
 
 .addLectureContainer {
@@ -124,8 +125,8 @@
 }
 
 .lectureButton {
-  background-color: #9d4edd;
-  color: rgb(255, 255, 255);
+  background-color: var(--bg-button);
+  color: var(--text-default);
   font-size: 1.2rem;
   font-weight: 500;
   border: none;
@@ -137,16 +138,17 @@
 }
 
 .lectureButton:hover {
-  background-color: #7b2cbf;
+  background-color: var(--bg-button-hover);
 }
 
 .navItem {
-  background-color: #e4e4e7;
+  background-color: var(--timetable-background);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  color: var(text-color);
 }
 
 .navItem:hover {
@@ -154,14 +156,14 @@
 }
 
 .active {
-  background-color: #6b52c2;
+  background-color: var(--lectures-button);
   color: white;
 }
 
 .notesContainer {
   padding: 1rem;
   overflow-y: auto;
-  background: #fdfdfd;
+  background: var(--bg-inside-container);
   border-radius: 1rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
@@ -187,7 +189,8 @@
   align-items: center;
   display: flex;
   margin-bottom: 1rem;
-  background-color: #f9f9f9;
+  background-color: var(--bg-inside-container);
+  color: var(--text-color);
 }
 
 .deleteButton {
@@ -209,7 +212,7 @@
 
 .noteLink {
   text-decoration: none;
-  color: #333333;
+  color: var(--text-color);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -229,7 +232,7 @@
 }
 
 .submitButton {
-  background-color: #9d4edd;
+  background-color: var(--bg-button);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -241,7 +244,7 @@
 }
 
 .submitButton:hover {
-  background-color: #7b2cbf;
+  background-color: var(--bg-button-hover);
 }
 
 .addLectureForm {

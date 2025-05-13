@@ -7,6 +7,7 @@ import NotesPage from "./pages/NotesPage";
 import CalendarPage from "./pages/CalendarPage";
 import SettingsPage from "./pages/SettingsPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./styles/themes.css";
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 .calendarWrapper {
-  background: #fdfdfd;
+  background: var(--bg-inside-container);
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -13,6 +13,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 .calendar {
@@ -22,20 +23,22 @@
 }
 
 .calendar th {
-  background-color: #bea1d62a;
+  background-color: var(--bg-readonly-timetable);
   padding: 0.5rem;
   text-align: center;
   width: 3rem;
   height: 1rem;
-  border: 0.15rem solid #ddd;
+  border: 0.15rem solid var(--readonly-grid);
+  color: var(--text-color);
 }
 
 .calendar td {
   vertical-align: top;
   padding: 0.3rem;
-  border: 0.15rem solid #ddd;
+  border: 0.15rem solid var(--readonly-grid);
   word-break: break-word;
   box-sizing: border-box;
+  color: var(--text-color);
 }
 
 .dayCell {
@@ -73,7 +76,7 @@
 .dot {
   width: 8px;
   height: 8px;
-  background-color: #574f7d;
+  background-color: var(--calendar-dot);
   border-radius: 50%;
 }
 
@@ -84,5 +87,19 @@
 }
 
 .today {
-  background-color: #bea1d64b;
+  background-color: var(--calendar-today);
+}
+
+.tooltip {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  background: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-size: 0.85rem;
+  pointer-events: none;
+  z-index: 1000;
+  max-width: 200px;
+  white-space: normal;
 }

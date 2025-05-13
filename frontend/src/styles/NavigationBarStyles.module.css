@@ -9,7 +9,7 @@
 .hamburgerButton {
   background: none;
   border: none;
-  color: #d3d3d3;
+  color: var(--hamburger-bg);
   cursor: pointer;
 }
 
@@ -24,7 +24,7 @@
   left: 0.8rem;
   width: 10vh;
   height: 100vh;
-  background-color: #706c7a;
+  background-color: var(--bg-background);
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@
   text-decoration: none;
   font-size: 1.2rem;
   font-family: "Montserrat", sans-serif;
-  color: rgb(214, 214, 214);
+  color: var(--text-default);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -70,7 +70,7 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  background-color: #87879c;
+  background-color: var(--navbar-hover);
 }
 
 /* Icons */

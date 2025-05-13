@@ -9,10 +9,12 @@
 
 import React, { useState } from "react";
 import styles from "../styles/SettingsPageStyles.module.css";
+import { useTheme } from "../hook/useTheme";
 
 const SettingsPage = () => {
   const [language, setLanguage] = useState("en");
   const [notifications, setNotifications] = useState(true);
+  const [theme, toggleTheme] = useTheme();
 
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value);
@@ -26,6 +28,9 @@ const SettingsPage = () => {
     <div className={styles.container}>
       <h1 className="text-3xl font-semibold mb-6">Einstellungen</h1>
 
+      <button onClick={toggleTheme}>
+        {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+      </button>
       <div className="mb-6">
         <label className="block text-xl mb-2">Sprache</label>
         <select

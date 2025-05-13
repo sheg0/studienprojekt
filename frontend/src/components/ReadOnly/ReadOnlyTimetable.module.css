@@ -1,5 +1,5 @@
 .readOnlyTimetable {
-  background: #fdfdfd;
+  background: var(--bg-inside-container);
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -13,22 +13,25 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 .grid {
   display: grid;
   grid-template-columns: 80px repeat(5, 1fr); /* Zeitspalte + 5 Wochentage */
-  border: 0.1rem solid #ddd;
+  border: 0.1rem solid var(--readonly-grid);
 }
 
 .cell {
   padding: 0.5rem;
-  border: 0.1rem solid #ddd;
+  border: 0.1rem solid var(--readonly-grid);
   text-align: center;
   min-height: 2rem;
+  color: var(--text-color);
 }
 
 .header {
   font-weight: bold;
-  background-color: #bea1d62a;
+  background-color: var(--bg-readonly-timetable);
+  color: var(--text-color);
 }

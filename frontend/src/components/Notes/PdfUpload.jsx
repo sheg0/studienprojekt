@@ -40,7 +40,7 @@ const PdfUpload = ({ lectureId, onUploaded }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginTop: "1rem" }}>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Titel"

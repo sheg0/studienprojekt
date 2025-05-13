@@ -7,7 +7,7 @@
  * Dependencies  : e.g. React, Axios, etc.
  */
 import React, { useState } from "react";
-import styles from "../styles/Modal.module.css";
+import styles from "../../styles/Modal.module.css";
 
 const LectureListModal = ({ lectures, onDelete, onClose }) => {
   const [searchTerm, setSearchTerm] = useState("");

@@ -46,16 +46,34 @@ const ToDoList = () => {
     fetchTodos();
   }, []);
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // verhindert das Abschicken des Formulars
+      const cursorPos = e.target.selectionStart;
+      // fügt an der Cursor-Position einen Zeilenumbruch ein
+      const before = input.slice(0, cursorPos);
+      const after = input.slice(cursorPos);
+      const newVal = `${before}\n${after}`;
+      setInput(newVal);
+      // verschiebt den Cursor hinter den eingefügten Zeilenumbruch
+      requestAnimationFrame(() => {
+        e.target.selectionStart = e.target.selectionEnd = cursorPos + 1;
+      });
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>📝 To-Do Liste</h3>
       <div className={styles.inputGroup}>
-        <input
+        <textarea
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Neue Aufgabe..."
           className={styles.inputField}
+          onKeyDown={handleKeyDown}
+          rows={1}
         />
         <button onClick={addTodo} className={styles.addButton}>
           +

@@ -7,14 +7,14 @@
  * Dependencies  : e.g. React, Axios, etc.
  */
 import React, { useState, useEffect } from "react";
-import { fetchLectures, createLecture } from "../services/api";
-import styles from "../styles/LecturesPageStyles.module.css";
+import { fetchLectures, createLecture } from "../../services/api";
+import styles from "../../styles/LecturesPageStyles.module.css";
 import LectureModal from "./LectureModal";
 import TimetableAddModal from "./TimetableAddModal";
 import LectureListModal from "./LectureListModal";
-import Modal from "./Modal";
+import Modal from "../Modal";
 import { FaPlus } from "react-icons/fa6";
-import LectureDeleteModal from "./Modal/LectureDeleteModal";
+import LectureDeleteModal from "./LectureDeleteModal";
 
 // Days and slots für timetable
 const days = ["Mo", "Di", "Mi", "Do", "Fr"];
@@ -115,7 +115,7 @@ const Lectures = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className="text-2xl font-bold mb-4">🗓️ Dein Stundenplan</h1>
+      <h1 className={styles.headerText}>🗓️ Dein Stundenplan</h1>
       <div className="flex gap-4 mb-4">
         <button
           onClick={() => setShowLectureModal(true)}

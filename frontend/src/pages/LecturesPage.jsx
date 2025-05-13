@@ -6,10 +6,8 @@
  * Version       : 1.0
  * Dependencies  : e.g. React, Axios, etc.
  */
-import React, { useState, useEffect } from "react";
-import { fetchLectures } from "../services/api";
-import styles from "../styles/LecturesPageStyles.module.css";
-import Lectures from "../components/Lectures";
+import React from "react";
+import Lectures from "../components/Lectures/Lectures";
 
 const LecturesPage = () => {
   return (

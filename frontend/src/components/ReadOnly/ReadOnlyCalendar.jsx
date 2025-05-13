@@ -9,6 +9,22 @@ const ReadOnlyCalendar = () => {
   const [calendarDays, setCalendarDays] = useState([]);
   const navigate = useNavigate();
 
+  const [hoveredEvent, setHoveredEvent] = useState(null);
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
+
+  // hover over event
+  const handleDotEnter = (e, event) => {
+    const rect = e.target.getBoundingClientRect();
+    setTooltipPos({
+      x: rect.left + rect.width / 2,
+      y: rect.top - 8,
+    });
+    setHoveredEvent(event);
+  };
+  const handleDotLeave = () => {
+    setHoveredEvent(null);
+  };
+
   useEffect(() => {
     fetch("http://localhost:3000/api/events")
       .then((res) => res.json())
@@ -89,8 +105,10 @@ const ReadOnlyCalendar = () => {
                           .map((e, idx) => (
                             <li
                               key={e.id}
-                              title={e.title}
                               className={styles.dot}
+                              onMouseEnter={(ev) => handleDotEnter(ev, e)}
+                              onMouseMove={(ev) => handleDotEnter(ev, e)}
+                              onMouseLeave={handleDotLeave}
                             ></li>
                           ))}
                         {getEventsForDay(day).length > 3 && (
@@ -107,6 +125,19 @@ const ReadOnlyCalendar = () => {
           ))}
         </tbody>
       </table>
+      {hoveredEvent && (
+        <div
+          className={styles.tooltip}
+          style={{
+            top: tooltipPos.y,
+            left: tooltipPos.x,
+          }}
+        >
+          <strong>{hoveredEvent.title}</strong>
+          <div>{hoveredEvent.time && <div>{hoveredEvent.time}</div>}</div>
+          <p style={{ margin: 0 }}>{hoveredEvent.description}</p>
+        </div>
+      )}
     </div>
   );
 };

@@ -13,7 +13,7 @@
 }
 
 .modal {
-  background: white;
+  background: var(--modal-background);
   width: 100%;
   max-width: 40rem;
   max-height: 80vh;
@@ -22,6 +22,7 @@
   padding: 2rem;
   position: relative;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
 }
 
 .modal h2 {
@@ -29,7 +30,7 @@
 }
 
 .modalBig {
-  background: white;
+  background: var(--modal-background);
   width: 90%;
   width: 40rem;
   height: 80vh;
@@ -47,7 +48,7 @@
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: #999;
+  color: var(--modal-closebtn);
   cursor: pointer;
   transition: color 0.2s ease;
 }
@@ -77,7 +78,7 @@
 }
 
 .buttonInput {
-  background-color: #9d4edd;
+  background-color: var(--bg-button);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -88,7 +89,7 @@
 }
 
 .buttonInput:hover {
-  background-color: #7b2cbf;
+  background-color: var(--bg-button-hover);
 }
 
 .periodContent {
@@ -150,7 +151,7 @@
 }
 
 .cancelButton {
-  background-color: #ccc;
+  background-color: var(--modal-cancelbtn);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -162,5 +163,5 @@
 }
 
 .cancelButton:hover {
-  background-color: #aaa;
+  background-color: var(--modal-cancelbtn-hover);
 }

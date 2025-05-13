@@ -1,0 +1,56 @@
+/* themes.css */
+
+/* Light Mode Standardwerte */
+:root {
+  --bg-background: #706c7a;
+  --bg-container: #f4f4f4;
+  --navbar-hover: #87879c;
+  --text-default: rgb(214, 214, 214);
+  --hamburger-bg: #d3d3d3;
+  --bg-inside-container: #f9f9f9;
+  --bg-button: #9d4edd;
+  --bg-button-hover: #7b2cbf;
+  --bg-readonly-timetable: #bea1d62a;
+  --calendar-dot: #574f7d;
+  --calendar-today: #bea1d64b;
+  --calendar-today-broder: #bea1d64b;
+  --readonly-grid: #ddd;
+  --text-color: #000;
+  --timetable-background: #eaeaea;
+  --lecture-entry-bg: #bea1d64b;
+  --modal-background: white;
+  --modal-closebtn: #999;
+  --modal-cancelbtn: #ccc;
+  --modal-cancelbtn-hover: #aaa;
+  --lectures-button: #6b52c2;
+  --calendar-cells: #fdfdfd;
+  --calendar-today-inCell: #9052c2;
+  --calendar-outside-month: #fcfcfc;
+}
+
+/* Dark Mode (bei data-theme="dark" auf <html> oder <body>) */
+[data-theme="dark"] {
+  --bg-background: #1e1e1e;
+  --bg-container: #444444;
+  --navbar-hover: #303030;
+  --text-default: rgb(214, 214, 214);
+  --hamburger-bg: #d3d3d3;
+  --bg-inside-container: #5e5e5e;
+  --bg-button: #2629d4;
+  --bg-button-hover: #191b92;
+  --bg-readonly-timetable: #a4a1d62a;
+  --calendar-dot: #221280;
+  --calendar-today: #a6a1d64b;
+  --readonly-grid: #aaaaaa;
+  --text-color: #fff;
+  --timetable-background: #888888;
+  --lecture-entry-bg: #a1a2d64b;
+  --modal-background: #888888;
+  --modal-closebtn: #dbdbdb;
+  --modal-cancelbtn: #363636;
+  --modal-cancelbtn-hover: #5f5f5f;
+  --lectures-button: #2325b4;
+  --calendar-cells: #747474;
+  --calendar-today-inCell: #191b92;
+  --calendar-outside-month: #5a5a5a;
+}
