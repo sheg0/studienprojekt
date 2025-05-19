@@ -47,3 +47,10 @@ docker-compose.override.yml
 # Optional: ignore built files
 /dist
 /build
+
+# File uploads
+uploads/
+public/uploads/
+
+# Database dumps
+db/*.sql
