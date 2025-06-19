@@ -75,7 +75,7 @@ const ReadOnlyCalendar = () => {
       className={styles.calendarWrapper}
       onClick={() => navigate("/calendar")}
     >
-      <h3 className={styles.title}>📆 Mein Kalender</h3>
+      <h3 className={styles.title}>{/*📆*/} Mein Kalender</h3>
       <table className={styles.calendar}>
         <thead>
           <tr>
@@ -98,7 +98,7 @@ const ReadOnlyCalendar = () => {
                 >
                   {day && (
                     <div>
-                      <strong>{day.getDate()}</strong>
+                      <div className="days">{day.getDate()}</div>
                       <ul className={styles.eventDots}>
                         {getEventsForDay(day)
                           .slice(0, 3)

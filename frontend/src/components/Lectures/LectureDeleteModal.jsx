@@ -9,7 +9,7 @@ const LectureDeleteModal = ({ lecture, onDelete, onCancel }) => {
         <button className={styles.closeButton} onClick={onCancel}>
           ✖
         </button>
-        <h3>❌ Vorlesung löschen</h3>
+        <h3>Vorlesung löschen</h3>
         <p>
           Möchtest du die Vorlesung <strong>{lecture.title}</strong> wirklich
           aus dem Stundenplan löschen?

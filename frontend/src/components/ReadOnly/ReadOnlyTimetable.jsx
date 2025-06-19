@@ -9,6 +9,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ReadOnlyTimetable.module.css";
 import { useNavigate } from "react-router-dom";
+import { IoTimeOutline } from "react-icons/io5";
 
 const weekdays = ["Mo", "Di", "Mi", "Do", "Fr"];
 const slots = [
@@ -48,9 +49,11 @@ const ReadOnlyTimetable = () => {
       className={styles.readOnlyTimetable}
       onClick={() => navigate("/lectures")}
     >
-      <h3 className={styles.title}>📅 Mein Stundenplan</h3>
+      <h3 className={styles.title}>Mein Stundenplan</h3>
       <div className={styles.grid}>
-        <div className={`${styles.cell} ${styles.header}`}>🕒</div>
+        <div className={`${styles.cell} ${styles.header}`}>
+          <IoTimeOutline size={20} style={{ margin: "0.5rem" }} />
+        </div>
         {weekdays.map((day) => (
           <th key={day} className={`${styles.cell} ${styles.header}`}>
             {day}
@@ -68,9 +71,10 @@ const ReadOnlyTimetable = () => {
                 <div key={day + slot.number} className={styles.cell}>
                   {entry ? (
                     <>
-                      <strong>{entry.title}</strong>
-                      <br />
-                      <small>{entry.room}</small>
+                      <div className={styles.timetableEntry}>{entry.title}</div>
+                      <small className={styles.timetableEntry}>
+                        {entry.room}
+                      </small>
                     </>
                   ) : (
                     ""

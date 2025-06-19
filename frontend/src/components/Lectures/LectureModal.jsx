@@ -19,7 +19,9 @@ const LectureModal = ({ onClose, onCreated }) => {
     try {
       const res = await fetch("http://localhost:3000/api/lectures", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
         body: JSON.stringify({ title, room }),
       });
       const newLecture = await res.json();
@@ -33,7 +35,7 @@ const LectureModal = ({ onClose, onCreated }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative">
-        <h2 className="text-xl font-bold mb-4">➕ Neue Vorlesung</h2>
+        <h2 className="text-xl font-bold mb-4">Neue Vorlesung</h2>
         <input
           type="text"
           placeholder="Titel"

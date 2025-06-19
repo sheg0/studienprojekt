@@ -105,7 +105,7 @@
 
 .title {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 1.5rem;
   color: var(--text-color);
 }
@@ -153,6 +153,10 @@
 
 .navItem:hover {
   background-color: #d4d4d8;
+}
+
+.noteName {
+  font-weight: 500;
 }
 
 .active {

@@ -55,7 +55,7 @@ const PdfUpload = ({ lectureId, onUploaded }) => {
         className={styles.fileInput}
       />
       <button type="submit" className={styles.submitButton}>
-        📤 Hochladen
+        Hochladen
       </button>
     </form>
   );

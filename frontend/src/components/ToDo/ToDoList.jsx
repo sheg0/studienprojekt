@@ -64,7 +64,7 @@ const ToDoList = () => {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>📝 To-Do Liste</h3>
+      <h3 className={styles.title}>To-Do Liste</h3>
       <div className={styles.inputGroup}>
         <textarea
           type="text"

@@ -24,16 +24,12 @@ const DetailEventModal = ({ event, onDelete, onClose }) => {
           <button className={styles.closeButton} onClick={onClose}>
             ✖
           </button>
-          <h2>
-            <strong>{event.text}</strong>
-          </h2>
+          <h2>{event.text}</h2>
           <p className={styles.eventModalText}>
-            <strong>Typ:</strong> {typeEmojis[event.type]} {event.type}
+            Typ: {typeEmojis[event.type]} {event.type}
           </p>
           {event.time && (
-            <p className={styles.eventModalText}>
-              <strong>Uhrzeit:</strong> {event.time}
-            </p>
+            <p className={styles.eventModalText}>Uhrzeit: {event.time}</p>
           )}
           <div className={styles.modalButtonContainer}>
             <button

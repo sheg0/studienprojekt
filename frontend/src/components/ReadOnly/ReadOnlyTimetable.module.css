@@ -11,7 +11,7 @@
 
 .title {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 1rem;
   color: var(--text-color);
 }
@@ -31,7 +31,12 @@
 }
 
 .header {
-  font-weight: bold;
+  font-weight: 500;
   background-color: var(--bg-readonly-timetable);
   color: var(--text-color);
+}
+
+.timetableEntry {
+  font-weight: 400;
+  font-size: 0.85rem;
 }

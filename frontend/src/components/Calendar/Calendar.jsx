@@ -17,20 +17,22 @@ import AddEventModal from "./AddEventModal.jsx";
 import DetailEventModal from "./DetailEventModal.jsx";
 import DeleteEventModal from "./DeleteEventModal.jsx";
 import Modal from "../Modal.jsx";
+import { FaRegBell } from "react-icons/fa";
+import { GrNotes } from "react-icons/gr";
+import { GoBook } from "react-icons/go";
+import { LiaChalkboardTeacherSolid } from "react-icons/lia";
 
 const Calendar = () => {
+  const getCSSVar = (name) =>
+    getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
   const typeColors = {
-    exam: "#8fa3b6",
-    lecture: "#91a89f",
-    reminder: "#574f7d",
-    study: "#503a65",
+    exam: getCSSVar("--event-type-color-exam"),
+    lecture: getCSSVar("--event-type-color-lecture"),
+    reminder: getCSSVar("--event-type-color-reminder"),
+    study: getCSSVar("--event-type-color-study"),
   };
-  const typeEmojis = {
-    exam: "📚",
-    lecture: "🧑‍🏫",
-    reminder: "🔔",
-    study: "📝",
-  };
+
   const monthNames = [
     "Januar",
     "Februar",
@@ -59,6 +61,8 @@ const Calendar = () => {
   const [events, setEvents] = useState({});
 
   const [detailEvent, setDetailEvent] = useState(null);
+
+  const [activeFilter, setActiveFilter] = useState("all");
 
   /* Fetching all the events */
   useEffect(() => {
@@ -225,7 +229,6 @@ const Calendar = () => {
         className={`${styles.calendarCell} ${styles.outsideMonth} ${
           isWeekend ? styles.weekend : ""
         }`}
-        style={{ backgroundColor: "#f0f0f0" }}
       >
         <div className={styles.dayInCell}>{day}</div>
 
@@ -341,7 +344,6 @@ const Calendar = () => {
         className={`${styles.calendarCell} ${styles.outsideMonth} ${
           isWeekend ? styles.weekend : ""
         }`}
-        style={{ backgroundColor: "#f0f0f0" }}
       >
         <div className={styles.dayInCell}>{i}</div>
 
@@ -384,6 +386,26 @@ const Calendar = () => {
       <div className={styles.calendarContent}>
         <div className={styles.eventListLeft}>
           <h2>Termine</h2>
+          <div className={styles.eventFilter}>
+            {["all", "exam", "lecture", "reminder", "study"].map((type) => (
+              <button
+                key={type}
+                className={`${styles.filterButton} ${
+                  activeFilter === type ? styles.active : ""
+                }`}
+                onClick={() => setActiveFilter(type)}
+              >
+                {type === "all"
+                  ? "Alle"
+                  : {
+                      exam: "Prüfungen",
+                      lecture: "Vorlesungen",
+                      reminder: "Erinnerungen",
+                      study: "Studium",
+                    }[type]}
+              </button>
+            ))}
+          </div>
           {Object.entries(events).length === 0 && (
             <p>Keine Termine vorhanden.</p>
           )}
@@ -391,58 +413,40 @@ const Calendar = () => {
             .filter(
               ([date]) => new Date(date) >= new Date().setHours(0, 0, 0, 0)
             )
-            .sort((a, b) => new Date(a[0]) - new Date(b[0]))
-            .map(([date, items]) => (
-              <div key={date}>
-                <h4>{new Date(date).toLocaleDateString("de-DE")}</h4>
-                {items.map((evt, idx) => (
-                  <div
-                    key={idx}
-                    className={styles.eventItem}
-                    style={{ background: evt.color }}
-                    onClick={() => {
-                      setSelectedEvent(evt);
-                      setShowDetailModal(true);
-                    }}
-                  >
-                    <div className={styles.eventContent}>
-                      <small
-                        style={{
-                          fontSize: "1.2rem",
-                        }}
-                      >
-                        {typeEmojis[evt.type]}{" "}
-                      </small>{" "}
-                      <span
-                        style={{
-                          fontSize: "1rem",
-                          fontWeight: "500",
-                          wordBreak: "break-all",
-                          overflow: "break-word",
-                        }}
-                      >
-                        {evt.text}
-                      </span>
-                      {evt.time && (
-                        <div style={{ fontSize: "1rem", opacity: 0.8 }}>
-                          {evt.time}
-                        </div>
-                      )}
-                    </div>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setEventToDelete({ id: evt.id, date });
-                        setShowDeleteModal(true);
+            .map(([date, items]) => {
+              const filteredItems =
+                activeFilter === "all"
+                  ? items
+                  : items.filter((evt) => evt.type === activeFilter);
+
+              if (filteredItems.length === 0) return null;
+
+              return (
+                <div key={date}>
+                  <h4 className={styles.eventName}>
+                    {new Date(date).toLocaleDateString("de-DE")}
+                  </h4>
+                  {filteredItems.map((evt, idx) => (
+                    <div
+                      key={idx}
+                      className={styles.eventItem}
+                      style={{ background: evt.color }}
+                      onClick={() => {
+                        setSelectedEvent(evt);
+                        setShowDetailModal(true);
                       }}
-                      className={styles.deleteButton}
                     >
-                      ❌
-                    </button>
-                  </div>
-                ))}
-              </div>
-            ))}
+                      <div className={styles.eventContent}>
+                        <p className={styles.eventName}>{evt.text}</p>
+                        {evt.time && (
+                          <div className={styles.eventTime}>{evt.time}</div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
         </div>
 
         {/* Right side with calendar */}

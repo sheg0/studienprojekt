@@ -7,57 +7,147 @@
  * Dependencies  : e.g. React, Axios, etc.
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/SettingsPageStyles.module.css";
 import { useTheme } from "../hook/useTheme";
-
+// import { useTranslation } from "react-i18next";
 const SettingsPage = () => {
-  const [language, setLanguage] = useState("en");
-  const [notifications, setNotifications] = useState(true);
-  const [theme, toggleTheme] = useTheme();
+  // const { t, i18n } = useTranslation();
+  const [theme, toggleTheme, setTheme] = useTheme();
 
-  const handleLanguageChange = (e) => {
-    setLanguage(e.target.value);
+  const [firstName, setFirstName] = useState("Esra");
+  const [lastName, setLastName] = useState("Balci");
+  const [email, setEmail] = useState("esbait01@hs-esslingen.de");
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    // Provisorisch: Ausgabe in der Konsole
+    console.log("Benutzerdaten gespeichert:", {
+      firstName,
+      lastName,
+      email,
+    });
+    alert("Benutzerdaten gespeichert (provisorisch)");
   };
 
-  const handleNotificationsChange = () => {
-    setNotifications(!notifications);
-  };
+  // const changeLanguage = (e) => {
+  //   const selectedLanguage = e.target.value;
+  //   i18n.changeLanguage(selectedLanguage);
+  //   localStorage.setItem("i18nextLng", selectedLanguage);
+  // };
+
+  // useEffect(() => {
+  //   const savedLang = localStorage.getItem("lang");
+  //   if (savedLang) i18n.changeLanguage(savedLang);
+  // }, []);
 
   return (
     <div className={styles.container}>
-      <h1 className="text-3xl font-semibold mb-6">Einstellungen</h1>
+      <h1 className={styles.headerText}>Einstellungen</h1>
 
-      <button onClick={toggleTheme}>
-        {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+      <section className={styles.settingsSection}>
+        <h2 className={styles.headerText}>Benutzerdaten</h2>
+        <form className={styles.userSettingsForm} onSubmit={handleSave}>
+          <label>
+            Vorname
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Esra"
+            />
+          </label>
+
+          <label>
+            Nachname
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Balci"
+            />
+          </label>
+
+          <label>
+            E-Mail-Adresse
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="esbait01@hs-esslingen.de"
+            />
+          </label>
+        </form>
+      </section>
+
+      <h2 className={styles.headerText}>Themen</h2>
+      <div className={styles.themeOptions}>
+        {[
+          {
+            value: "light",
+            label: "Light",
+            colors: ["#706c7a", "#5c5866"],
+          },
+          {
+            value: "dark",
+            label: "Dark",
+            colors: ["#1e1e1e", "#2629d4"],
+          },
+          {
+            value: "green",
+            label: "Calm Green",
+            colors: ["#eaf4ec", "#88b394"],
+          },
+          {
+            value: "smoky",
+            label: "Smoky Blue",
+            colors: ["#1b1e23", "#3c5a77"],
+          },
+          {
+            value: "gwbg",
+            label: "Girls Will Be Girls",
+            colors: ["#111111", "#d2232a"],
+          },
+        ].map((themeOption) => (
+          <div key={themeOption.value} className={styles.themeCard}>
+            <div className={styles.colorSwatch}>
+              {themeOption.colors.map((color, idx) => (
+                <span
+                  key={idx}
+                  className={styles.swatchBox}
+                  style={{ backgroundColor: color }}
+                />
+              ))}
+            </div>
+            <button
+              className={`${styles.themeButton} ${
+                theme === themeOption.value ? styles.active : ""
+              }`}
+              onClick={() => setTheme(themeOption.value)}
+            >
+              {themeOption.label}
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <br />
+      <button type="submit" className={styles.saveButton}>
+        Speichern
       </button>
-      <div className="mb-6">
-        <label className="block text-xl mb-2">Sprache</label>
+
+      {/* 
+      <div>
+        <h1>{t("settings")}</h1>
+
         <select
-          value={language}
-          onChange={handleLanguageChange}
-          className="p-2 border rounded-md"
+          value={i18n.language}
+          onChange={(e) => i18n.changeLanguage(e.target.value)}
         >
-          <option value="en">Englisch</option>
-          <option value="de">Deutsch</option>
-          <option value="fr">Französisch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="de">🇩🇪 Deutsch</option>
         </select>
-      </div>
-
-      <div className="mb-6">
-        <label className="block text-xl mb-2">Benachrichtigungen</label>
-        <input
-          type="checkbox"
-          checked={notifications}
-          onChange={handleNotificationsChange}
-          className="mr-2"
-        />
-        <span>Benachrichtigungen aktivieren</span>
-      </div>
-
-      <button className="bg-blue-500 text-white py-2 px-6 rounded-md">
-        Einstellungen speichern
-      </button>
+      </div> */}
     </div>
   );
 };

@@ -107,7 +107,7 @@ const Notes = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>📚 Notizen & Lernmaterialien</h1>
+      <h1 className={styles.title}>Notizen & Lernmaterialien</h1>
       {/* Navbar mit Lectures */}
       <div className={styles.addLectureContainer}>
         <div className={styles.navbar}>
@@ -136,7 +136,7 @@ const Notes = () => {
           <PdfUpload lectureId={activeLectureId} onUploaded={fetchNotes} />
           <input
             type="text"
-            placeholder="🔎 PDF-Titel suchen..."
+            placeholder="PDF-Titel suchen..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className={styles.searchInput}
@@ -160,7 +160,7 @@ const Notes = () => {
                       rel="noopener noreferrer"
                       className={styles.noteLink}
                     >
-                      <strong>{note.title}</strong>
+                      <div className={styles.noteName}>{note.title}</div>
                     </a>
                     <p>
                       Hochgeladen am:{" "}

@@ -61,7 +61,7 @@ const TimetableForm = () => {
         borderRadius: "1rem",
       }}
     >
-      <h2>📅 Vorlesung zum Stundenplan hinzufügen</h2>
+      <h2>Vorlesung zum Stundenplan hinzufügen</h2>
 
       <select
         value={selectedLecture}

@@ -115,26 +115,25 @@ const Lectures = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.headerText}>🗓️ Dein Stundenplan</h1>
+      <h1 className={styles.headerText}>Mein Stundenplan</h1>
       <div className="flex gap-4 mb-4">
         <button
           onClick={() => setShowLectureModal(true)}
           className={styles.buttonInput}
         >
-          <FaPlus style={{ marginRight: "0.5rem" }} />
           Neue Vorlesung
         </button>
         <button
           onClick={() => setShowTimetableModal(true)}
           className={styles.buttonInput}
         >
-          🗓️ In Stundenplan eintragen
+          In Stundenplan eintragen
         </button>
         <button
           onClick={() => setShowLectureListModal(true)}
           className={styles.buttonInput}
         >
-          📜 Vorlesungsliste anzeigen
+          Vorlesungsliste anzeigen
         </button>
       </div>
       {/* === Modals === */}

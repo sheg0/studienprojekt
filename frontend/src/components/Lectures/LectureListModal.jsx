@@ -40,11 +40,11 @@ const LectureListModal = ({ lectures, onDelete, onClose }) => {
           ✖
         </button>
         {/* Header */}
-        <h2 className="text-2xl font-bold text-center mb-4">📚 Vorlesungen</h2>
+        <h2 className="text-2xl font-bold text-center mb-4">Vorlesungen</h2>
         {/* Search */}
         <input
           type="text"
-          placeholder="🔍 Suche nach Vorlesung..."
+          placeholder="Suche nach Vorlesung..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className={styles.selectInput}
@@ -59,7 +59,7 @@ const LectureListModal = ({ lectures, onDelete, onClose }) => {
               </h3>
               {lecture.room && (
                 <p className="text-sm text-gray-500 mt-1">
-                  📍 {highlightMatch(lecture.room, searchTerm)}
+                  {highlightMatch(lecture.room, searchTerm)}
                 </p>
               )}
             </div>

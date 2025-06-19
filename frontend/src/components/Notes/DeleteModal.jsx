@@ -9,7 +9,7 @@ const DeleteModal = ({ onConfirm, onCancel, onClose }) => {
         <button className={styles.closeButton} onClick={onClose}>
           ✖
         </button>
-        <h3>❌ Notiz wirklich löschen?</h3>
+        <h3>Notiz wirklich löschen?</h3>
         <p>Diese Aktion kann nicht rückgängig gemacht werden.</p>
         <div className={styles.actions}>
           <button onClick={onConfirm} className={styles.buttonInput}>

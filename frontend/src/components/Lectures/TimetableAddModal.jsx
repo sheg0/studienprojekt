@@ -48,7 +48,7 @@ const TimetableAddModal = ({ onClose, onAdded }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative">
-        <h2 className="text-xl font-bold mb-4">🗓️ In Stundenplan eintragen</h2>
+        <h2 className="text-xl font-bold mb-4">In Stundenplan eintragen</h2>
         <select
           value={lectureId}
           onChange={(e) => setLectureId(e.target.value)}

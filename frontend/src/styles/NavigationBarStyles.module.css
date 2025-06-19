@@ -64,6 +64,7 @@
   border-radius: 1rem;
   width: 11rem;
   transition: background-color 0.3s ease;
+  font-weight: 500;
 }
 
 .box:hover {

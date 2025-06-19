@@ -103,6 +103,7 @@
 }
 .headerText {
   color: var(--text-color);
+  font-weight: 500;
 }
 
 .gridContainer {
@@ -181,6 +182,7 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
+  transition: background-color 0.3s ease;
 }
 
 .buttonInput:hover {
