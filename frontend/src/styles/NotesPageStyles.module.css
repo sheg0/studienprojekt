@@ -148,7 +148,7 @@
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: var(text-color);
+  color: var(--text-color);
 }
 
 .navItem:hover {
@@ -175,10 +175,12 @@
 .searchInput {
   width: 50%;
   padding: 0.5rem;
-  border: 0.15rem solid #ccc;
+  border: 0.1rem solid rgb(194, 194, 194);
   border-radius: 0.75rem;
   margin-bottom: 1rem;
   font-size: 1rem;
+  background-color: var(--input-field);
+  color: var(--text-default);
 }
 
 .notesList {
@@ -186,7 +188,7 @@
 }
 
 .noteCard {
-  border: 0.15rem solid #ccc;
+  border: 0.1rem solid rgb(194, 194, 194);
   border-radius: 1rem;
   padding: 1rem;
   justify-content: space-between;
@@ -228,16 +230,17 @@
 .fileInput {
   width: 20%;
   padding: 0.5rem;
-  border: 0.15rem solid #ccc;
+  border: 0.1rem solid rgb(194, 194, 194);
   border-radius: 0.75rem;
   margin-bottom: 1rem;
   font-size: 1rem;
   margin-left: 1rem;
+  color: var(--text-color);
 }
 
 .submitButton {
   background-color: var(--bg-button);
-  color: white;
+  color: var(--text-default);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;

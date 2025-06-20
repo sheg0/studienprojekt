@@ -48,35 +48,29 @@ const SettingsPage = () => {
       <section className={styles.settingsSection}>
         <h2 className={styles.headerText}>Benutzerdaten</h2>
         <form className={styles.userSettingsForm} onSubmit={handleSave}>
-          <label>
-            Vorname
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="Esra"
-            />
-          </label>
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="Vorname"
+            className={styles.typeInput}
+          />
 
-          <label>
-            Nachname
-            <input
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              placeholder="Balci"
-            />
-          </label>
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Nachname"
+            className={styles.typeInput}
+          />
 
-          <label>
-            E-Mail-Adresse
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="esbait01@hs-esslingen.de"
-            />
-          </label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-Mail-Adresse"
+            className={styles.typeInput}
+          />
         </form>
       </section>
 
@@ -130,11 +124,6 @@ const SettingsPage = () => {
           </div>
         ))}
       </div>
-
-      <br />
-      <button type="submit" className={styles.saveButton}>
-        Speichern
-      </button>
 
       {/* 
       <div>

@@ -28,43 +28,45 @@
   --calendar-cells: #fdfdfd;
   --calendar-today-inCell: #9052c2;
   --calendar-outside-month: #fcfcfc;
-  --event-type-color-exam: #d8bfd8; /* light plum */
-  --event-type-color-lecture: #c8e4d1; /* mint pastel */
-  --event-type-color-reminder: #cfcde0; /* muted lavender */
+  --event-type-color-exam: #d8bfd8;
+  --event-type-color-lecture: #c8e4d1;
+  --event-type-color-reminder: #cfcde0;
   --event-type-color-study: #d6cde3;
+  --input-field: white;
 }
 
-/* Dark Mode (bei data-theme="dark" auf <html> oder <body>) */
 [data-theme="dark"] {
-  --bg-background: #1e1e1e;
-  --bg-container: #444444;
-  --navbar-hover: #303030;
-  --text-default: rgb(214, 214, 214);
-  --hamburger-bg: #d3d3d3;
-  --bg-inside-container: #5e5e5e;
-  --bg-button: #2629d4;
-  --bg-button-hover: #191b92;
-  --bg-readonly-timetable: #a4a1d62a;
-  --calendar-dot: #221280;
-  --calendar-today: #a6a1d64b;
-  --calendar-hover: #3c3c3c;
-  --calendar-outside: #888888;
-  --readonly-grid: #aaaaaa;
-  --text-color: #fff;
-  --timetable-background: #888888;
-  --lecture-entry-bg: #a1a2d64b;
-  --modal-background: #888888;
-  --modal-closebtn: #dbdbdb;
-  --modal-cancelbtn: #363636;
-  --modal-cancelbtn-hover: #5f5f5f;
-  --lectures-button: #2325b4;
-  --calendar-cells: #747474;
-  --calendar-today-inCell: #191b92;
-  --calendar-outside-month: #5a5a5a;
-  --event-type-color-exam: #3c3c94; /* deep indigo */
-  --event-type-color-lecture: #2a7c7c; /* teal slate */
-  --event-type-color-reminder: #62528f; /* muted violet */
-  --event-type-color-study: #5c5ca0;
+  --bg-background: #121212;
+  --bg-container: #1e1e1e;
+  --navbar-hover: #2a2a2a;
+  --text-default: #f4f1e8;
+  --hamburger-bg: #2e2e2e;
+  --bg-inside-container: #222222;
+  --bg-button: #3d5afe;
+  --bg-button-hover: #304ffe;
+  --lectures-button: #5c6bc0;
+  --bg-readonly-timetable: #3f3f3f40;
+  --calendar-dot: #64b5f6;
+  --calendar-today: #3949ab40;
+  --calendar-today-broder: #5c6bc0;
+  --calendar-hover: #2e2e2e;
+  --calendar-outside: #666;
+  --readonly-grid: #444;
+  --calendar-cells: #1c1c1c;
+  --calendar-today-inCell: #7986cb;
+  --calendar-outside-month: #1a1a1a;
+  --text-color: #eae4d8;
+  --timetable-background: #1b1b1b;
+  --lecture-entry-bg: #5c6bc040;
+  --modal-background: #1d1d1d;
+  --modal-closebtn: #888;
+  --modal-cancelbtn: #2c2c2c;
+  --modal-cancelbtn-hover: #444;
+  --event-type-color-exam: #9f394d;
+  --event-type-color-lecture: #b06c88;
+  --event-type-color-reminder: #874a8b;
+  --event-type-color-study: #6d3c74;
+  --input-field: #2a2a2a;
 }
 
 [data-theme="green"] {
@@ -94,17 +96,18 @@
   --calendar-cells: #ffffff;
   --calendar-today-inCell: #69a37a;
   --calendar-outside-month: #f2f8f3;
-  --event-type-color-exam: #e5cfcf; /* rose mist */
-  --event-type-color-lecture: #bfe2cd; /* pastel sage */
-  --event-type-color-reminder: #cfdfe1; /* cloudy blue-gray */
+  --event-type-color-exam: #e5cfcf;
+  --event-type-color-lecture: #bfe2cd;
+  --event-type-color-reminder: #cfdfe1;
   --event-type-color-study: #dcd3e4;
+  --input-field: #ecffec;
 }
 
 [data-theme="smoky"] {
   --bg-background: #1b1e23;
   --bg-container: #242933;
   --navbar-hover: #2e3540;
-  --text-default: #e3e9f0;
+  --text-default: #eff0e3;
   --hamburger-bg: #3a404c;
   --bg-inside-container: #2f3541;
   --bg-button: #3c5a77;
@@ -116,7 +119,7 @@
   --calendar-hover: #3a404c;
   --calendar-outside: #4a4a4a;
   --readonly-grid: #4a4a4a;
-  --text-color: #dde4ee;
+  --text-color: #eceedd;
   --timetable-background: #2b2f36;
   --lecture-entry-bg: #54799b30;
   --modal-background: #2c313c;
@@ -127,29 +130,30 @@
   --calendar-cells: #303742;
   --calendar-today-inCell: #7ba1c0;
   --calendar-outside-month: #242933;
-  --event-type-color-exam: #74818e; /* slate gray-blue */
-  --event-type-color-lecture: #5c7c74; /* mossy teal */
-  --event-type-color-reminder: #807c99; /* lavender smoke */
+  --event-type-color-exam: #74818e;
+  --event-type-color-lecture: #5c7c74;
+  --event-type-color-reminder: #807c99;
   --event-type-color-study: #8e7998;
+  --input-field: #242933;
 }
 
 [data-theme="gwbg"] {
-  --bg-background: #111111; /* tiefes Schwarz */
-  --bg-container: #1b1b1b; /* dunkles Grau */
-  --navbar-hover: #2a2a2a; /* leichtes Grau für Hover */
-  --text-default: #f0ede9; /* warmes Off-White */
+  --bg-background: #111111;
+  --bg-container: #1b1b1b;
+  --navbar-hover: #2a2a2a;
+  --text-default: #fffcdf;
   --hamburger-bg: #333;
   --bg-inside-container: #202020;
-  --bg-button: #d2232a; /* knalliges Album-Rot */
-  --bg-button-hover: #f04855; /* heller beim Hover */
-  --lectures-button: #ff333a; /* helles Rot für Buttons */
+  --bg-button: #d2232a;
+  --bg-button-hover: #f04855;
+  --lectures-button: #ff333a;
   --modal-background: #181818;
   --modal-closebtn: #777;
   --modal-cancelbtn: #2f2f2f;
   --modal-cancelbtn-hover: #444;
   --readonly-grid: #555;
-  --calendar-dot: #e0464a; /* roter Punkt */
-  --calendar-today: #d2232a50; /* transparentes Rot */
+  --calendar-dot: #e0464a;
+  --calendar-today: #d2232a50;
   --calendar-today-broder: #ff5252;
   --calendar-today-inCell: #ff4b58;
   --calendar-cells: #262626;
@@ -158,9 +162,10 @@
   --calendar-outside: #3a3a3a;
   --timetable-background: #1f1f1f;
   --lecture-entry-bg: #ff5c5c33;
-  --text-color: #f8f8f8;
-  --event-type-color-exam: #9f394d; /* deep rose */
-  --event-type-color-lecture: #b06c88; /* plum dust */
-  --event-type-color-reminder: #874a8b; /* velvet orchid */
+  --text-color: #ebe9d5;
+  --event-type-color-exam: #9f394d;
+  --event-type-color-lecture: #b06c88;
+  --event-type-color-reminder: #874a8b;
   --event-type-color-study: #6d3c74;
+  --input-field: #1b1b1b;
 }

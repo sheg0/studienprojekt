@@ -79,6 +79,41 @@
   font-size: 1.5rem;
 }
 
+.logo {
+  width: 30%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.logo:hover {
+  animation: shake 0.4s ease-in-out;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 /* Styling für Mobile (Smartphone) bis 767px*/
 @media (max-width: 767px) {
   .mobileHeader {

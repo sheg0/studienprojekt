@@ -186,8 +186,7 @@ const Lectures = () => {
               <tr key={slot}>
                 <td>
                   <div>
-                    <strong>{slot}</strong>
-                    <br />
+                    <div>{slot}</div>
                     <small className={styles.timeLabel}>
                       {slotTimes[slot]}
                     </small>
@@ -219,8 +218,8 @@ const Lectures = () => {
                       }}
                     >
                       <div className={styles.entryBox}>
-                        <strong>{entry.title}</strong>
-                        <small>{entry.room}</small>
+                        <div>{entry.title}</div>
+                        <div style={{ opacity: 0.8 }}>{entry.room}</div>
                       </div>
                     </td>
                   );

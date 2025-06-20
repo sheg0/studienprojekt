@@ -14,6 +14,7 @@ import { IoBookSharp, IoSettingsOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import { MdAssignment } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
+import logo from "../arkanote-logo-transparent.png";
 
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,6 +38,11 @@ const NavigationBar = () => {
           menuOpen ? styles.showMenu : styles.hideMenu
         }`}
       >
+        <div className={styles.logoContainer}>
+          <img src={logo} alt="Arkanote Logo" className={styles.logo} />
+          <h1 className={styles.text}>ArkaNote</h1>
+        </div>
+
         <h1 className={styles.box}>
           <NavLink
             to="/"

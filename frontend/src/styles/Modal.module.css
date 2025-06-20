@@ -69,6 +69,11 @@
   }
 }
 
+.modalBig h2 {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
 .selectInput {
   width: 97.5%;
   padding: 0.5rem;
@@ -76,6 +81,8 @@
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   font-size: 1rem;
+  background-color: var(--input-field);
+  color: var(--text-default);
 }
 
 .buttonInput {
@@ -105,6 +112,8 @@
   padding: 0.5rem;
   width: 30%;
   margin-right: 1rem;
+  background-color: var(--input-field);
+  color: var(--text-default);
 }
 
 .periodInput {
@@ -113,6 +122,8 @@
   align-items: center;
   margin-bottom: 1rem;
   padding: 0.5rem;
+  background-color: var(--input-field);
+  color: var(--text-default);
 }
 
 .lectureItem {

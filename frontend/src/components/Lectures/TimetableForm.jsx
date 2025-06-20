@@ -109,7 +109,7 @@ const TimetableForm = () => {
       </div>
 
       <button onClick={handleAdd} style={{ marginTop: "1rem" }}>
-        ➕ Eintragen
+        Eintragen
       </button>
     </div>
   );

@@ -173,7 +173,7 @@
 .buttonInput {
   background-color: var(--bg-button);
   border: none;
-  color: white;
+  color: var(--text-default);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -222,7 +222,7 @@
 
 .table th {
   background-color: var(--bg-readonly-timetable);
-  font-weight: bold;
+  font-weight: 500;
   height: 1rem;
 }
 
@@ -237,16 +237,6 @@
   justify-content: center;
   display: flex;
   align-items: center;
-}
-
-.entryBox strong {
-  display: block;
-  font-weight: 500;
-}
-
-.entryBox small {
-  display: block;
-  font-size: 0.75rem;
   color: var(--text-color);
 }
 

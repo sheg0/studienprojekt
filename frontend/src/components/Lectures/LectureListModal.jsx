@@ -40,7 +40,7 @@ const LectureListModal = ({ lectures, onDelete, onClose }) => {
           ✖
         </button>
         {/* Header */}
-        <h2 className="text-2xl font-bold text-center mb-4">Vorlesungen</h2>
+        <h2>Vorlesungen</h2>
         {/* Search */}
         <input
           type="text"
