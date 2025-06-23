@@ -1,0 +1,341 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{selbstorganisation}{incollection}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=44775708e45630497c9299763442d8c5}{%
+           family={Busse},
+           familyi={B\bibinitperiod},
+           given={Julian},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c29036ded7cd421c27865386e4a8ab60}{%
+           family={Geiser},
+           familyi={G\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=44d06e2f83900bffc2ee6111ddfd4db2}{%
+           family={Schumann},
+           familyi={S\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cbe879ce3c9611be786598b156a4e0f7}{%
+           family={Seeber},
+           familyi={S\bibinitperiod},
+           given={Susan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=be26d8cecf4e92bab1e41e552b272b91}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={Susanne},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b1e4c8591defbfd0eba91323f9423a20}{%
+           family={Hackenberg},
+           familyi={H\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=250cb98a16b23b4d50d8d6dfaf1adac0}{%
+           family={Zarnow},
+           familyi={Z\bibinitperiod},
+           given={Stefanie},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fce828321be11ccc5af5161205460d4b}{%
+           family={Hiller},
+           familyi={H\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {wbv Publikation}%
+      }
+      \strng{namehash}{87765382a05eadc814972a2b17302312}
+      \strng{fullhash}{a285d7fd706ae94fc32e1f873f333ab0}
+      \strng{fullhashraw}{a285d7fd706ae94fc32e1f873f333ab0}
+      \strng{bibnamehash}{87765382a05eadc814972a2b17302312}
+      \strng{authorbibnamehash}{87765382a05eadc814972a2b17302312}
+      \strng{authornamehash}{87765382a05eadc814972a2b17302312}
+      \strng{authorfullhash}{a285d7fd706ae94fc32e1f873f333ab0}
+      \strng{authorfullhashraw}{a285d7fd706ae94fc32e1f873f333ab0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Digitale Transformation in der Berufsbildung}
+      \field{title}{Didaktische Bedeutung der Digitalisierung für die kaufmännische Berufsausbildung}
+      \field{year}{2022}
+    \endentry
+    \entry{docker}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5fd214cdd0d2b3b4272e73b022ba5c2}{%
+           family={Docker},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{fullhash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{fullhashraw}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{bibnamehash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{authorbibnamehash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{authornamehash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{authorfullhash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{authorfullhashraw}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is Docker?}
+      \field{urlday}{15}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.docker.com/get-started/docker-overview/
+      \endverb
+      \verb{url}
+      \verb https://docs.docker.com/get-started/docker-overview/
+      \endverb
+    \endentry
+    \entry{mysql}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=62a004b95946bb97541afa471dcca73a}{%
+           family={MySQL},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{62a004b95946bb97541afa471dcca73a}
+      \strng{fullhash}{62a004b95946bb97541afa471dcca73a}
+      \strng{fullhashraw}{62a004b95946bb97541afa471dcca73a}
+      \strng{bibnamehash}{62a004b95946bb97541afa471dcca73a}
+      \strng{authorbibnamehash}{62a004b95946bb97541afa471dcca73a}
+      \strng{authornamehash}{62a004b95946bb97541afa471dcca73a}
+      \strng{authorfullhash}{62a004b95946bb97541afa471dcca73a}
+      \strng{authorfullhashraw}{62a004b95946bb97541afa471dcca73a}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{MySQL}
+      \field{urlday}{15}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.mysql.com/de/
+      \endverb
+      \verb{url}
+      \verb https://www.mysql.com/de/
+      \endverb
+    \endentry
+    \entry{nodejs}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4b00bbf4971bea7d45e4ee343c881d44}{%
+           family={Node.js},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b00bbf4971bea7d45e4ee343c881d44}
+      \strng{fullhash}{4b00bbf4971bea7d45e4ee343c881d44}
+      \strng{fullhashraw}{4b00bbf4971bea7d45e4ee343c881d44}
+      \strng{bibnamehash}{4b00bbf4971bea7d45e4ee343c881d44}
+      \strng{authorbibnamehash}{4b00bbf4971bea7d45e4ee343c881d44}
+      \strng{authornamehash}{4b00bbf4971bea7d45e4ee343c881d44}
+      \strng{authorfullhash}{4b00bbf4971bea7d45e4ee343c881d44}
+      \strng{authorfullhashraw}{4b00bbf4971bea7d45e4ee343c881d44}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Node.js}
+      \field{urlday}{27}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://nodejs.org/en/
+      \endverb
+      \verb{url}
+      \verb https://nodejs.org/en/
+      \endverb
+    \endentry
+    \entry{obexer}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1fed9befa2a086731c36c77d3b853277}{%
+           family={Obexer},
+           familyi={O\bibinitperiod},
+           given={Regina},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a855d9c25b8870fdbcec88aa3ea8864f}{%
+           family={Giardina},
+           familyi={G\bibinitperiod},
+           given={Natasha},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{8}{}{%
+        {{hash=45200dc560f37216f6492f42f3d5d188}{%
+           family={Wachtler},
+           familyi={W\bibinitperiod},
+           given={Josef},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5c1e37bddb3178581978b467dea5df20}{%
+           family={Ebner},
+           familyi={E\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b45d97edf4d25cd6780f148c8e303fdf}{%
+           family={Gröblinger},
+           familyi={G\bibinitperiod},
+           given={Ortrun},
+           giveni={O\bibinitperiod}}}%
+        {{hash=d93f88df1acd17907db2b3033322d2dc}{%
+           family={Kopp},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=06e1076aea662cc22c53effae6cc24cb}{%
+           family={Bratengeyer},
+           familyi={B\bibinitperiod},
+           given={Erwin},
+           giveni={E\bibinitperiod}}}%
+        {{hash=9bfa926af5b6f29c5308dced07755634}{%
+           family={Steinbacher},
+           familyi={S\bibinitperiod},
+           given={Hans-Peter},
+           giveni={H\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=ba7d826342338b5fabfda3e6462c4304}{%
+           family={Freisleben-Teutscher},
+           familyi={F\bibinithyphendelim T\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=e818f044bf3ff323152d2b1ba657da5a}{%
+           family={Kapper},
+           familyi={K\bibinitperiod},
+           given={Christine},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Waxmann}%
+      }
+      \strng{namehash}{0ed4b1e01ba2fc1ba81c5915044f085d}
+      \strng{fullhash}{0ed4b1e01ba2fc1ba81c5915044f085d}
+      \strng{fullhashraw}{0ed4b1e01ba2fc1ba81c5915044f085d}
+      \strng{bibnamehash}{0ed4b1e01ba2fc1ba81c5915044f085d}
+      \strng{authorbibnamehash}{0ed4b1e01ba2fc1ba81c5915044f085d}
+      \strng{authornamehash}{0ed4b1e01ba2fc1ba81c5915044f085d}
+      \strng{authorfullhash}{0ed4b1e01ba2fc1ba81c5915044f085d}
+      \strng{authorfullhashraw}{0ed4b1e01ba2fc1ba81c5915044f085d}
+      \strng{editorbibnamehash}{834ebb5f5427aca0624070a39cd34a63}
+      \strng{editornamehash}{834ebb5f5427aca0624070a39cd34a63}
+      \strng{editorfullhash}{e97937d66f4fbd75fd147e97eefb290c}
+      \strng{editorfullhashraw}{e97937d66f4fbd75fd147e97eefb290c}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Digitale Medien: Zusammenarbeit in der Bildung}
+      \field{title}{What is a learning designer? Support roles and structures for collaborative E‑Learning implementation}
+      \field{year}{2016}
+      \field{pages}{137\bibrangedash 146}
+      \range{pages}{10}
+    \endentry
+    \entry{react}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=50ce2da63bea6a618e7578fa50690040}{%
+           family={React},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{fullhash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{fullhashraw}{50ce2da63bea6a618e7578fa50690040}
+      \strng{bibnamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorbibnamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authornamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorfullhash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorfullhashraw}{50ce2da63bea6a618e7578fa50690040}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{React}
+      \field{urlday}{26}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://react.dev/
+      \endverb
+      \verb{url}
+      \verb https://react.dev/
+      \endverb
+    \endentry
+    \entry{pwa}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b96d69fda53845a205151613a9c4cc93}{%
+           family={Sana},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b96d69fda53845a205151613a9c4cc93}
+      \strng{fullhash}{b96d69fda53845a205151613a9c4cc93}
+      \strng{fullhashraw}{b96d69fda53845a205151613a9c4cc93}
+      \strng{bibnamehash}{b96d69fda53845a205151613a9c4cc93}
+      \strng{authorbibnamehash}{b96d69fda53845a205151613a9c4cc93}
+      \strng{authornamehash}{b96d69fda53845a205151613a9c4cc93}
+      \strng{authorfullhash}{b96d69fda53845a205151613a9c4cc93}
+      \strng{authorfullhashraw}{b96d69fda53845a205151613a9c4cc93}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{PWA (Progressive Web App)}
+      \field{urlday}{15}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.sana-commerce.com/de/ecommerce-erklaert/was-ist-pwa/
+      \endverb
+      \verb{url}
+      \verb https://www.sana-commerce.com/de/ecommerce-erklaert/was-ist-pwa/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,22 @@
+\chapter{Deployment}
+Dieses Kapitel beschreibt die notwendigen Schritte zur Bereitstellung der entwickelten Webanwendung. 
+\begin{enumerate}
+    \item Klonen Sie das GitHub Repository:\newline
+    \texttt{git clone https://github.com/sheg0/studienprojekt.git}
+    \item Wechseln Sie in das Verzeichnis des Projekts:\newline
+    \texttt{cd studienprojekt}
+    \item Installieren Sie die Abhängigkeiten für das Backend:\newline
+    \texttt{cd backend}\newline
+    \texttt{npm install}
+    \item Pullen Sie Docker:\newline
+    \texttt{docker pull shego/backend-backend}
+    \item Installieren Sie die Abhängigkeiten für das Frontned:\newline
+    \texttt{cd ../frontend}\newline
+    \texttt{npm install}
+    \item Starten Sie alle Services im Backend über Docker Compose:\newline
+    \texttt{docker-compose up --build}
+    \item Starten Sie das Frontend:\newline
+    \texttt{npm start}
+    \item Die Anwendung ist nun erreichbar unter:\newline
+    \texttt{http://localhost:3000}
+\end{enumerate}

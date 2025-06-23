@@ -99,7 +99,7 @@ const SettingsPage = () => {
           },
           {
             value: "gwbg",
-            label: "Girls Will Be Girls",
+            label: "Dark Red",
             colors: ["#111111", "#d2232a"],
           },
         ].map((themeOption) => (

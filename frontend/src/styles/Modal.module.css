@@ -82,7 +82,7 @@
   margin-bottom: 1rem;
   font-size: 1rem;
   background-color: var(--input-field);
-  color: var(--text-default);
+  color: var(--text-color);
 }
 
 .buttonInput {
@@ -113,7 +113,7 @@
   width: 30%;
   margin-right: 1rem;
   background-color: var(--input-field);
-  color: var(--text-default);
+  color: var(--text-color);
 }
 
 .periodInput {
@@ -123,7 +123,7 @@
   margin-bottom: 1rem;
   padding: 0.5rem;
   background-color: var(--input-field);
-  color: var(--text-default);
+  color: var(--text-color);
 }
 
 .lectureItem {

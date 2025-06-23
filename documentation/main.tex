@@ -1,0 +1,73 @@
+\documentclass[12pt,ngerman,parskip=half,bibliography=totoc,titlepage]{scrreprt}
+\usepackage[a4paper, left=3.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{mathpazo}
+% \usepackage{ebgaramond}
+\usepackage[
+  backend=biber,
+  style=authoryear,
+  citestyle=authoryear
+]{biblatex}
+\addbibresource{literatur.bib}
+\usepackage{setspace} 
+\onehalfspacing
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+\begin{titlepage}
+  \includegraphics[width=4cm]{images/hochschule_logo.png}\par\vspace{2cm}
+  Facharbeit \newline \newline \newline
+  {\large\textbf{Progressive Web App für Studierende: Eine App zur Verwaltung von Vorlesungen, Notizen und Prüfungen}}\\[1cm]
+  im Studiengang\\
+  Softwaretechnik und Medieninformatik (B. Eng)\newline \newline \newline
+  vorgelegt von\newline \newline
+    \textbf{Esra Balci}\\
+    Matr.-Nr.: 766561\\
+    E-Mail: esbait01@hs-esslingen.de\\
+    am 24.06.2025\\ 
+    an der Hochschule Esslingen \newline \newline
+    \vspace{2ex} % Abstand unter der Linie
+    \noindent\makebox[\textwidth]{\rule{\textwidth}{0.5pt}}
+    \vspace{2ex}
+    {\textbf{Prüferin: Prof. Dipl.-Informatikerin Astrid Beck \\
+    Zweitprüfer: Prof. Dr.-Ing. Harald Melcher
+    }}
+
+\end{titlepage}
+
+\tableofcontents
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\listoffigures
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+\listoftables
+
+\cleardoublepage
+
+\include{chapters/einleitung}
+\include{chapters/konzept}
+\include{chapters/architektur}
+% \include{chapters/usability}
+\include{chapters/ergebnisse}
+% \include{chapters/deployment}
+\include{chapters/fazit}
+
+\cleardoublepage
+\phantomsection
+\printbibliography[heading=bibintoc]
+
+\end{document}
