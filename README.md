@@ -1,7 +1,18 @@
-# Studienprojekt
-Eine Progressive Web App, mit der Studierende Vorlesungen, Notizen und Prüfungen organisieren können.
+# PWA
+This is a progressive web app that helps students organize lectures, notes and exams.
 
 ## Features
-- Vorlesungsverwaltung: Stundenplan-Anzeige, Benachrichtigungen für anstehende Vorlesungen, Notizen direkt an Vorlesungen hängen, To-Do-Liste.
-- Notizen & Lernmaterialien: Verlinkung von Notizen zu Vorlesungen & Prüfungen, Uploads für PDFs, Bilder für Mitschriften.
-- Prüfungsorganisation: Prüfungskalender mit Deadlines & Erinnerungen.
+### Lecture Management
+- Timetable overview
+- Notifications for umpcoming lectures
+- Attach notes directly to lectures
+- Built-in to-do list
+
+### Notes and Study Materials
+- Link notes to lectures and exams
+- Upload support for PDFs
+- Image uploads for handwritten notes
+
+### Organization
+- Calender with deadlines
+- Reminder notifications
